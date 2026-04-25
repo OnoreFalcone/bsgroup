@@ -32,7 +32,7 @@ The work spans:
 These decisions are final unless the user explicitly reopens them. Do NOT relitigate:
 
 ### Master claim
-**Macher für den Schweizer Finanzplatz.**
+**Aus Konzept wird Realität.**
 
 ### Hero sub-line
 *Wir bringen Ihre Projekte ins Ziel — pragmatisch, erfahren und verbindlich. Seit über 30 Jahren.*
@@ -168,7 +168,7 @@ If a future session starts cold, the right first move is to read `BSGroup_Brand_
 
 If you forget everything else, remember these:
 
-1. **Macher für den Schweizer Finanzplatz.** (master)
+1. **Aus Konzept wird Realität.** (master)
 2. **Wir bringen Ihre Projekte ins Ziel.** (sub-line core)
 3. **Pragmatisch, erfahren und verbindlich.** (sub-line triplet)
 4. **Aus Plan wird Produktion.** (Project Services)
@@ -183,6 +183,7 @@ Everything else flows from these.
 ## Document history
 
 - **v1.0** — Initial CLAUDE.md created at handoff from web Claude session to server-side project. Captures all decisions through 25 April 2026.
+- **v1.1** — Master claim updated to "Aus Konzept wird Realität." in line with `BSGroup_Brand_Decisions.md` v1.2. Quick-reference and locked-decisions sections kept in sync. (current version)
 
 ---
 

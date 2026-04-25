@@ -83,7 +83,7 @@ Rotating, contextual. Used for specific moments: a recruiting campaign, a SYRIUS
 
 ### The three rules that hold the system together
 
-1. **One master, no exceptions.** *Macher für den Schweizer Finanzplatz.* appears on every brand surface — homepage hero, footer, signature, business card, LinkedIn. No team substitutes their favorite line at this level.
+1. **One master, no exceptions.** *Aus Konzept wird Realität.* appears on every brand surface — homepage hero, footer, signature, business card, LinkedIn. No team substitutes their favorite line at this level.
 2. **Pillar lines are tied to service lines, not to moods.** A buyer reading about Solution Services sees the Solution Services line — and recognizes the same brand voice underneath.
 3. **Campaign lines are time-boxed.** Each gets a specific use case and a specific window. Otherwise the system decays into a soup of taglines where nothing stands out.
 
@@ -93,7 +93,7 @@ Rotating, contextual. Used for specific moments: a recruiting campaign, a SYRIUS
 
 ### Master claim
 
-> **Macher für den Schweizer Finanzplatz.**
+> **Aus Konzept wird Realität.**
 
 ### Hero sub-line
 
@@ -101,7 +101,11 @@ Rotating, contextual. Used for specific moments: a recruiting campaign, a SYRIUS
 
 ### Why this works
 
-**The master claim** picks a fight. *Macher* is unusual in Swiss B2B — most consultancies don't dare call themselves that. The word does heavy lifting: it positions BSGroup as builders and finishers, not strategists or presenters. It implicitly attacks the "Folienleger" (slide-stackers) without being rude about it. It also recruits well — *Macher gesucht* writes itself into a job ad headline.
+**The master claim** names the transition that defines BSGroup's work. Buyers in Swiss financial services don't lack concepts — they lack reliable execution. Strategy decks, regulatory mandates, and platform-evaluation papers come to BSGroup as Konzept; what leaves the engagement is Realität — code in production, processes followed, audits passed. Three things the line does:
+
+- **Aus X wird Y is a formal construction.** Durable, declarative, neither hyped nor cute. Reads in the cadence of a contract clause — which fits the buyer's register.
+- **Specific without naming an industry.** Konzept and Realität are the universal poles of regulated work. Plain German, no buzzwords, no Anglicisms.
+- **Pairs cleanly with the Project Services pillar.** The pillar line is *Aus Plan wird Produktion.* — same grammatical shape, same rhythm. Master and pillar share grammatical DNA, so the home page reads as one coherent voice rather than a master in one register and pillars in another.
 
 **The sub-line** does three jobs in one sentence:
 
@@ -123,7 +127,8 @@ Rotating, contextual. Used for specific moments: a recruiting campaign, a SYRIUS
 - Reception backdrop
 - Proposal cover pages
 - Conference booth backdrops
-- Recruiting page H1 (it works as a recruiting claim too)
+
+(The Karriere page uses *Macher gesucht.* as its own campaign line — see Section 6.)
 
 ### What "Pragmatisch. Professionell. Echt Schweiz." was failing at
 
@@ -227,6 +232,10 @@ These can stay in the cheatsheet as alternative options if a campaign or context
 - *Verbindlich. Verlässlich. Verantwortlich.* — Compliance- und Governance-lastige Pitches
 - *Dieselben Köpfe vom Kickoff bis zum Go-Live.* — anti-churn pitches, longer sales decks
 
+### Parked from a previous master role
+
+- *Macher für den Schweizer Finanzplatz.* — was the v1.1 master claim. Replaced in v1.2 by *Aus Konzept wird Realität.* to align grammatically with the Project Services pillar line. Kept available as an anniversary or values-page line; *Macher gesucht.* (above) remains the active recruiting-campaign use of the same word.
+
 ### Retired
 
 - *Pragmatisch. Professionell. Echt Schweiz.* — explicitly killed; do not reintroduce.
@@ -252,7 +261,7 @@ HOME  ·  SERVICES  ·  REFERENZEN  ·  INSIGHTS  ·  ÜBER UNS  ·  KARRIERE  �
 
 | # | Page | Hero claim | Primary buyer | Primary CTA |
 |---|---|---|---|---|
-| 1 | Home | Macher für den Schweizer Finanzplatz. | All buyers | Projekt besprechen |
+| 1 | Home | Aus Konzept wird Realität. | All buyers | Projekt besprechen |
 | 2 | Project Services | Aus Plan wird Produktion. | Project / Programme leads | Projekt-Setup besprechen |
 | 3 | Solution Services | Wir kennen die Plattformen, weil wir sie eingeführt haben. | Fachbereich / IT decision-makers | Lösung evaluieren |
 | 4 | Quality Services / Seryous-Testing | Wenn's einfach wäre, bräuchten Sie uns nicht. | Krankenversicherer + bank QA leads | Seryous-Testing kennenlernen |
@@ -329,7 +338,7 @@ Ten sections, top to bottom. Every section earns its place.
 
 ### Section 1 — Hero
 
-> # Macher für den Schweizer Finanzplatz.
+> # Aus Konzept wird Realität.
 >
 > *Wir bringen Ihre Projekte ins Ziel — pragmatisch, erfahren und verbindlich. Seit über 30 Jahren.*
 >
@@ -353,7 +362,7 @@ If logos cannot be cleared by launch: substitute *"4 Schweizer Privatbanken · 3
 
 Three short paragraphs of prose. No bullets.
 
-> ### Macher, keine Folienleger.
+> ### Liefern statt präsentieren.
 >
 > In Bank- und Versicherungsprojekten zählt nicht, wer das schönste Konzept schreibt — sondern wer es zum Laufen bringt. Genau dafür holt man uns.
 >
@@ -456,7 +465,7 @@ Make the booking calendar the primary, with two real names and faces visible as 
 ### Section 10 — Footer
 
 > **BSGroup**
-> *Macher für den Schweizer Finanzplatz.*
+> *Aus Konzept wird Realität.*
 >
 > [Services]   [Referenzen]   [Insights]   [Über uns]   [Karriere]   [Kontakt]
 >
@@ -761,7 +770,8 @@ Get four projects to the point where the client will allow naming. Even one name
 ## Document history
 
 - **v1.0** — Initial brand voice cheatsheet with "Wer anfängt, bleibt." as master claim
-- **v1.1** — Master claim changed to "Macher für den Schweizer Finanzplatz." after leadership feedback. "Wer anfängt, bleibt." moved to Über uns. Sub-line locked as "Wir bringen Ihre Projekte ins Ziel — pragmatisch, erfahren und verbindlich. Seit über 30 Jahren." Über uns paragraph extended to surface client retention alongside consultant tenure. (current version)
+- **v1.1** — Master claim changed to "Macher für den Schweizer Finanzplatz." after leadership feedback. "Wer anfängt, bleibt." moved to Über uns. Sub-line locked as "Wir bringen Ihre Projekte ins Ziel — pragmatisch, erfahren und verbindlich. Seit über 30 Jahren." Über uns paragraph extended to surface client retention alongside consultant tenure.
+- **v1.2** — Master claim changed from "Macher für den Schweizer Finanzplatz." to "Aus Konzept wird Realität." New claim aligns grammatically with the Project Services pillar "Aus Plan wird Produktion." (same Aus X wird Y construction) so master and pillars share one voice register. Sub-line and all four pillar lines unchanged. The previous master is parked (see Section 6) and "Macher gesucht." remains the active recruiting-campaign line. Section 9 home-page Why-BSGroup heading updated from "Macher, keine Folienleger." to "Liefern statt präsentieren." Code (Hero, Footer, Hero default fallback) and CLAUDE.md updated to match. (current version)
 
 ---
 
