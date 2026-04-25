@@ -1,0 +1,27 @@
+---
+import { services } from '@/data/services';
+---
+
+<section class="bg-bg-page">
+  <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl space-y-2xl">
+    <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">Was wir liefern.</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+      {services.map(service => (
+        <a
+          href={`/services/${service.slug}`}
+          class="group flex flex-col gap-sm rounded-lg border border-border-subtle bg-bg-surface p-lg transition-shadow hover:shadow-md"
+        >
+          <p class="text-eyebrow text-fg-brand">{service.eyebrow}</p>
+          <h3 class="text-h3 font-semibold text-fg-primary">{service.headline}</h3>
+          <p class="text-body-m text-fg-secondary flex-1">
+            {service.sub.split(' — ')[0]}.
+          </p>
+          <p class="inline-flex items-center gap-2xs text-body-m font-medium text-fg-brand pt-2xs">
+            Mehr erfahren <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+          </p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

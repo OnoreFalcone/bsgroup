@@ -1,0 +1,17 @@
+---
+import { cultureItems } from '@/data/site';
+---
+
+<section class="bg-bg-surface-subtle">
+  <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl space-y-2xl">
+    <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">Was uns ausmacht.</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-2xl gap-y-xl">
+      {cultureItems.map(c => (
+        <div class="space-y-xs">
+          <h3 class="text-h3 font-semibold text-fg-primary">{c.head}</h3>
+          <p class="text-body-m text-fg-secondary">{c.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

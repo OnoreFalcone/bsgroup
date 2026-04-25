@@ -1,0 +1,21 @@
+---
+const photos = ['BÜRO', 'ARBEITSPLATZ', 'TEAM-RAUM'];
+---
+
+<section class="bg-bg-page">
+  <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl space-y-2xl">
+    <div class="space-y-xs max-w-3xl">
+      <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">Wo wir arbeiten.</h2>
+      <p class="text-body-l text-fg-secondary">
+        Standort Zürich-Schlieren. Echte Bilder vom echten Arbeitsplatz — kein Stock, keine Glaspaläste, keine choreografierten Hands-on-Whiteboard-Inszenierungen.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-md">
+      {photos.map(label => (
+        <div class="aspect-[7/5] rounded-lg bg-bg-inverse-subtle flex items-center justify-center">
+          <span class="text-eyebrow text-white/40">{label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

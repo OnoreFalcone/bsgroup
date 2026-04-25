@@ -1,0 +1,46 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-bg-page);
+    color: var(--color-text-primary);
+  }
+
+  ::selection {
+    background-color: var(--color-bg-brand);
+    color: var(--color-text-on-brand);
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgb(0 23 137 / 0.30);
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  /* Infinite logo slider — referenced by Proof Bar / Logo Slider organisms.
+     Honors prefers-reduced-motion. */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 50s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee { animation: none; }
+  }
+}

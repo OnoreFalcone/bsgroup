@@ -1,0 +1,65 @@
+---
+const columns = [
+  {
+    title: 'Services',
+    items: [
+      { label: 'Project Services', href: '/services/project-services' },
+      { label: 'Solution Services', href: '/services/solution-services' },
+      { label: 'Quality Services', href: '/services/quality-services' },
+      { label: 'Software Services', href: '/services/software-services' },
+    ],
+  },
+  {
+    title: 'Unternehmen',
+    items: [
+      { label: 'Über uns', href: '/ueber-uns' },
+      { label: 'Karriere', href: '/karriere' },
+      { label: 'Insights', href: '/insights' },
+      { label: 'Referenzen', href: '/referenzen' },
+    ],
+  },
+  {
+    title: 'Kontakt',
+    items: [
+      { label: 'Standort Zürich', href: '/kontakt' },
+      { label: 'kontakt@bsgroup.ch', href: 'mailto:kontakt@bsgroup.ch' },
+      { label: 'LinkedIn', href: 'https://linkedin.com/company/bsgroup' },
+    ],
+  },
+];
+---
+
+<footer class="bg-bg-inverse text-fg-inverse">
+  <div class="max-w-layout mx-auto px-md md:px-2xl pt-3xl pb-lg">
+    <div class="flex flex-col md:flex-row gap-2xl pb-2xl">
+      <div class="md:w-[360px] space-y-sm">
+        <p class="text-2xl font-bold">BSGroup</p>
+        <p class="text-body-m opacity-70">Aus Konzept wird Realität.</p>
+      </div>
+      <div class="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-xl">
+        {columns.map(col => (
+          <div class="space-y-xs">
+            <p class="text-eyebrow opacity-50">{col.title}</p>
+            <ul class="space-y-2xs">
+              {col.items.map(item => (
+                <li>
+                  <a href={item.href} class="text-body-m hover:opacity-70 transition-opacity">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="border-t border-white/20 pt-sm flex flex-col sm:flex-row justify-between gap-md text-body-s opacity-50">
+      <p>© {new Date().getFullYear()} BSGroup AG · Zürich</p>
+      <ul class="flex gap-md">
+        <li><a href="/impressum" class="hover:opacity-70 transition-opacity">Impressum</a></li>
+        <li><a href="/datenschutz" class="hover:opacity-70 transition-opacity">Datenschutz</a></li>
+        <li><a href="/agb" class="hover:opacity-70 transition-opacity">AGB</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

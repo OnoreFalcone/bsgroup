@@ -1,0 +1,26 @@
+---
+import { cases } from '@/data/cases';
+---
+
+<section class="bg-bg-page">
+  <div class="max-w-layout mx-auto px-md md:px-2xl pb-3xl md:pb-4xl">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+      {cases.map(c => (
+        <a
+          href={c.href}
+          class="group flex flex-col gap-sm rounded-lg border border-border-subtle bg-bg-surface p-lg transition-shadow hover:shadow-md"
+        >
+          <span class="self-start rounded-full bg-bg-brand-subtle px-xs py-[4px] text-eyebrow text-fg-brand">
+            {c.industry}
+          </span>
+          <h3 class="text-h3 font-semibold text-fg-primary">{c.headline}</h3>
+          <p class="text-body-m text-fg-secondary flex-1">{c.outcome}</p>
+          <p class="text-body-s text-fg-muted">{c.platform} · {c.serviceLine}</p>
+          <p class="inline-flex items-center gap-2xs text-body-m font-medium text-fg-brand pt-2xs">
+            Mehr lesen <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+          </p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

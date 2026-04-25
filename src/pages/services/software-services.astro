@@ -1,0 +1,23 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ServiceHero from '@components/sections/ServiceHero.astro';
+import ServiceIntro from '@components/sections/ServiceIntro.astro';
+import CapabilitiesGrid from '@components/sections/CapabilitiesGrid.astro';
+import MethodStrip from '@components/sections/MethodStrip.astro';
+import ReferenceCase from '@components/sections/ReferenceCase.astro';
+import FinalCta from '@components/sections/FinalCta.astro';
+import { getService } from '@/data/services';
+import { cases } from '@/data/cases';
+
+const service = getService('software-services')!;
+const refCase = cases.find(c => c.serviceLine === 'Software Services')!;
+---
+
+<BaseLayout title="Software Services" description={service.sub}>
+  <ServiceHero {...service} />
+  <ServiceIntro heading={service.introHeading} paragraphs={service.introParagraphs} />
+  <CapabilitiesGrid capabilities={service.capabilities} />
+  <MethodStrip steps={service.steps} />
+  <ReferenceCase case={refCase} />
+  <FinalCta />
+</BaseLayout>

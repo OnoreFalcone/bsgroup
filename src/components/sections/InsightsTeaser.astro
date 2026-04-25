@@ -1,0 +1,55 @@
+---
+// Placeholder Insights teaser — until real MDX articles exist, show 3 article cards.
+const articles = [
+  {
+    category: 'Testing',
+    date: 'April 2026',
+    headline: 'Was Schweizer Krankenversicherer beim nächsten SYRIUS-Release falsch machen',
+    lede: 'Sechs vermeidbare Fehler aus 40 SYRIUS-Releases — und wie unsere Test-Teams sie systematisch ausschliessen.',
+    href: '#',
+  },
+  {
+    category: 'Migration',
+    date: 'März 2026',
+    headline: 'Avaloq-Migrationen: Die fünf Fallen, die wir am häufigsten sehen',
+    lede: 'Aus 30 Avaloq-Mandaten kondensiert: die Fehler, die alle anderen ignorieren — und was sie kosten.',
+    href: '#',
+  },
+  {
+    category: 'Engineering',
+    date: 'Februar 2026',
+    headline: 'Self-Onboarding richtig: Warum 23 Minuten zu viel sind',
+    lede: 'Der Schritt-für-Schritt-Weg von einer 23-minütigen Onboarding-Strecke zu einer in 8 Minuten.',
+    href: '#',
+  },
+];
+---
+
+<section class="bg-bg-page">
+  <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl space-y-2xl">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-md">
+      <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">Aktuelles aus dem Schweizer Finanzplatz.</h2>
+      <a href="/insights" class="inline-flex items-center gap-2xs text-body-m font-medium text-fg-brand hover:text-fg-brand-hover transition-colors">
+        Alle Insights <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+      {articles.map(a => (
+        <a href={a.href} class="group flex flex-col gap-sm overflow-hidden rounded-lg transition-shadow hover:shadow-md">
+          <div class="aspect-[16/10] bg-bg-inverse-subtle rounded-lg flex items-center justify-center">
+            <span class="text-eyebrow text-white/40">IMAGE</span>
+          </div>
+          <div class="space-y-xs px-2xs">
+            <p class="text-eyebrow">
+              <span class="text-fg-brand">{a.category}</span>
+              <span class="text-fg-muted"> · {a.date}</span>
+            </p>
+            <h3 class="text-h3 font-semibold text-fg-primary group-hover:text-fg-brand transition-colors">{a.headline}</h3>
+            <p class="text-body-s text-fg-secondary">{a.lede}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

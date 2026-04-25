@@ -1,0 +1,30 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import UeberUnsHero from '@components/sections/UeberUnsHero.astro';
+import HistoryTimeline from '@components/sections/HistoryTimeline.astro';
+import WasUnsAusmacht from '@components/sections/WasUnsAusmacht.astro';
+import KpiStrip from '@components/sections/KpiStrip.astro';
+import LeadershipTeam from '@components/sections/LeadershipTeam.astro';
+import OfficePhotos from '@components/sections/OfficePhotos.astro';
+import FinalCta from '@components/sections/FinalCta.astro';
+---
+
+<BaseLayout
+  title="Über uns"
+  description="30 Jahre am Schweizer Finanzplatz. Eigentümergeführt. Beraterinnen und Berater, die im Schnitt über acht Jahre bleiben."
+>
+  <UeberUnsHero />
+  <HistoryTimeline />
+  <WasUnsAusmacht />
+  <KpiStrip />
+  <LeadershipTeam />
+  <OfficePhotos />
+  <FinalCta
+    heading="Macher gesucht."
+    body="Wir wachsen, wenn die richtigen Leute kommen — nicht weil die Pipeline es will. Wenn Sie liefern statt präsentieren wollen, sollten wir reden."
+    primaryLabel="Offene Stellen ansehen"
+    primaryHref="/karriere"
+    secondaryLabel="Initiativbewerbung"
+    secondaryHref="/karriere"
+  />
+</BaseLayout>

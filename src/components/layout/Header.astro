@@ -1,0 +1,32 @@
+---
+const navItems = [
+  { label: 'Services', href: '/services/project-services' },
+  { label: 'Referenzen', href: '/referenzen' },
+  { label: 'Insights', href: '/insights' },
+  { label: 'Über uns', href: '/ueber-uns' },
+  { label: 'Karriere', href: '/karriere' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-bg-page border-b border-border-subtle">
+  <div class="max-w-layout mx-auto px-md md:px-2xl flex items-center justify-between h-16">
+    <a href="/" class="text-xl font-bold text-fg-primary hover:text-fg-brand transition-colors">BSGroup</a>
+    <nav class="hidden md:flex items-center gap-lg">
+      {navItems.map(item => (
+        <a href={item.href} class="text-body-m font-medium text-fg-primary hover:text-fg-brand transition-colors">
+          {item.label}
+        </a>
+      ))}
+    </nav>
+    <a href="/kontakt" class="hidden md:inline-flex items-center gap-2xs bg-bg-brand text-fg-on-brand px-md py-2xs rounded font-semibold hover:bg-bg-brand-hover transition-colors">
+      Kontakt
+    </a>
+    <button class="md:hidden text-fg-primary" aria-label="Menü öffnen">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="4" y1="6" x2="20" y2="6" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="18" x2="20" y2="18" />
+      </svg>
+    </button>
+  </div>
+</header>

@@ -1,0 +1,19 @@
+---
+import { sliderLogos } from '@/data/site';
+// Track is duplicated so the marquee animation can loop seamlessly.
+const track = [...sliderLogos, ...sliderLogos];
+---
+
+<section class="bg-bg-surface-subtle py-lg overflow-hidden border-y border-border-subtle">
+  <div class="flex w-max animate-marquee items-center gap-2xl md:gap-3xl px-2xl">
+    {track.map(logo => (
+      <img
+        src={`/logos/clients/${logo.filename}`}
+        alt={logo.alt}
+        class="h-12 md:h-14 w-auto object-contain shrink-0"
+        loading="lazy"
+        aria-hidden={track.indexOf(logo) >= sliderLogos.length ? 'true' : undefined}
+      />
+    ))}
+  </div>
+</section>

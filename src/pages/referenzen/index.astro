@@ -1,0 +1,27 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ReferenzenHero from '@components/sections/ReferenzenHero.astro';
+import CaseStudyGrid from '@components/sections/CaseStudyGrid.astro';
+import LogoWall from '@components/sections/LogoWall.astro';
+import Testimonials from '@components/sections/Testimonials.astro';
+import KpiStrip from '@components/sections/KpiStrip.astro';
+import FinalCta from '@components/sections/FinalCta.astro';
+import { referenzenKpis } from '@/data/site';
+---
+
+<BaseLayout
+  title="Referenzen"
+  description="200+ Projekte für Schweizer Banken, Versicherer und Krankenversicherer. Eine Auswahl unserer Mandate."
+>
+  <ReferenzenHero />
+  <CaseStudyGrid />
+  <LogoWall />
+  <Testimonials />
+  <KpiStrip kpis={referenzenKpis} background="surface-subtle" />
+  <FinalCta
+    heading="Eine Referenz wie Ihre dabei?"
+    body="Senior-Beraterin oder Senior-Berater zeigt Ihnen in 30 Minuten zwei bis drei vergleichbare Mandate im Detail — inklusive der Sachen, die schiefgegangen sind und wie wir sie gerichtet haben."
+    primaryLabel="Termin buchen"
+    secondaryLabel="Vollständige Referenzliste anfragen (NDA)"
+  />
+</BaseLayout>

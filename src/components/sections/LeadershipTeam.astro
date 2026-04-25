@@ -1,0 +1,31 @@
+---
+import { leaders } from '@/data/site';
+---
+
+<section class="bg-bg-surface-subtle">
+  <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl space-y-2xl">
+    <div class="space-y-xs max-w-3xl">
+      <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">Wer hier verantwortet.</h2>
+      <p class="text-body-l text-fg-secondary">
+        Sechs Senior-Beratende mit zusammen über 150 Jahren Erfahrung im Schweizer Finanzplatz. Die Personen, mit denen Sie an einem Tisch sitzen.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
+      {leaders.map(l => (
+        <div class="space-y-sm">
+          <div class="aspect-square rounded-lg bg-bg-inverse-subtle flex items-center justify-center">
+            <span class="text-eyebrow text-white/40">B&W PORTRAIT</span>
+          </div>
+          <div class="space-y-2xs">
+            <p class="text-h3 font-semibold text-fg-primary">Name folgt</p>
+            <p class="text-body-m font-medium text-fg-brand">{l.role}</p>
+            <p class="text-body-m text-fg-secondary">{l.context}</p>
+            <a href="#" class="inline-flex items-center gap-2xs pt-xs text-body-m font-medium text-fg-brand hover:text-fg-brand-hover transition-colors">
+              LinkedIn <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

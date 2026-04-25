@@ -1,0 +1,42 @@
+---
+interface Props {
+  heading?: string;
+  body?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+const {
+  heading = 'Reden wir über Ihr Vorhaben.',
+  body = 'Ob konkrete Projektanfrage oder erste Sondierung — 30 Minuten mit einer unserer Senior-Beraterinnen oder einem Senior-Berater kosten nichts und bringen Klarheit.',
+  primaryLabel = 'Termin buchen',
+  primaryHref = '/kontakt',
+  secondaryLabel = 'Anfrage senden',
+  secondaryHref = '/kontakt',
+} = Astro.props;
+---
+
+<section class="bg-bg-inverse text-fg-inverse">
+  <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl">
+    <div class="max-w-3xl mx-auto text-center space-y-md">
+      <h2 class="text-4xl md:text-display-l font-bold">{heading}</h2>
+      <p class="text-body-l text-white/85">{body}</p>
+      <div class="flex flex-wrap justify-center gap-sm pt-sm">
+        <a
+          href={primaryHref}
+          class="inline-flex items-center gap-2xs bg-white text-fg-brand px-lg py-sm rounded font-semibold hover:bg-bg-brand-subtle transition-colors"
+        >
+          {primaryLabel} <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href={secondaryHref}
+          class="inline-flex items-center gap-2xs border border-white text-white px-lg py-sm rounded font-semibold hover:bg-white/10 transition-colors"
+        >
+          {secondaryLabel} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

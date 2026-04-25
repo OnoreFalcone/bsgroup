@@ -1,0 +1,99 @@
+---
+import { milestones } from '@/data/milestones';
+const N = milestones.length;
+---
+
+<section class="bg-bg-page">
+  <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl">
+    <div class="space-y-md max-w-2xl mb-2xl">
+      <p class="text-eyebrow text-fg-brand">30 JAHRE</p>
+      <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">Eine Linie. Neun Momente.</h2>
+      <p class="text-body-l text-fg-secondary">
+        Was wir seit 1995 für den Schweizer Finanzplatz geliefert haben — auf einer Zeitachse zusammengefasst.
+      </p>
+    </div>
+
+    {/* Mobile: vertical layout */}
+    <ol class="lg:hidden space-y-xl">
+      {milestones.map(m => (
+        <li class="flex gap-md timeline-item">
+          <div class="flex flex-col items-center pt-xs">
+            <div class:list={[
+              'w-4 h-4 rounded-full border-2 border-white',
+              m.isCurrent ? 'bg-bg-brand ring-8 ring-bg-brand-subtle' : 'bg-bg-brand'
+            ]}></div>
+            <div class="w-px flex-1 bg-border-default mt-xs"></div>
+          </div>
+          <div class="flex-1 pb-md space-y-2xs">
+            <p class:list={['text-h2 font-bold leading-none', m.isCurrent ? 'text-fg-brand' : 'text-fg-primary']}>{m.year}</p>
+            <p class="text-eyebrow text-fg-muted">{m.tag.toUpperCase()}</p>
+            <h3 class="text-h3 font-semibold text-fg-primary pt-xs">{m.head}</h3>
+            <p class="text-body-m text-fg-secondary">{m.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    {/* Desktop: horizontal "Macher line" */}
+    <div class="hidden lg:block">
+      <div class="relative">
+        {/* Continuous brand-blue line */}
+        <div class="absolute left-0 right-0 h-0.5 bg-bg-brand pointer-events-none" style="top: 100px;"></div>
+
+        <div class="grid relative" style={`grid-template-columns: repeat(${N}, minmax(0, 1fr));`}>
+          {milestones.map(m => (
+            <div class="flex flex-col items-center text-center timeline-item">
+              {/* Top: year + tag (close to dot) */}
+              <div class="h-[100px] flex flex-col items-center justify-end pb-2xs">
+                <p class:list={['text-3xl font-bold leading-none', m.isCurrent ? 'text-fg-brand' : 'text-fg-primary']}>{m.year}</p>
+                <p class="text-eyebrow text-fg-muted mt-xs">{m.tag.toUpperCase()}</p>
+              </div>
+              {/* Dot row */}
+              <div class="h-10 flex items-center relative">
+                {m.isCurrent && (
+                  <div class="absolute w-10 h-10 rounded-full bg-bg-brand-subtle"></div>
+                )}
+                <div class="relative w-4 h-4 rounded-full bg-bg-brand border-2 border-white"></div>
+              </div>
+              {/* Bottom: head + body */}
+              <div class="pt-md px-2xs space-y-xs">
+                <h3 class="text-h3 font-semibold text-fg-primary">{m.head}</h3>
+                <p class="text-body-s text-fg-secondary">{m.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Fade-in animation as items enter the viewport */
+  .timeline-item {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 600ms ease-out, transform 600ms ease-out;
+  }
+  .timeline-item.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-item { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+
+<script>
+  // Reveal each milestone as it scrolls into view
+  const items = document.querySelectorAll<HTMLElement>('.timeline-item');
+  const io = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    }
+  }, { threshold: 0.2 });
+  items.forEach(el => io.observe(el));
+</script>

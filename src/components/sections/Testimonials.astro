@@ -1,0 +1,18 @@
+---
+import { testimonials } from '@/data/site';
+---
+
+<section class="bg-bg-page">
+  <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl space-y-2xl">
+    <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">Was unsere Kunden sagen.</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+      {testimonials.map(t => (
+        <div class="flex flex-col gap-md rounded-lg border border-border-subtle bg-bg-surface p-lg">
+          <p class="text-5xl font-bold text-fg-brand opacity-40 leading-none">"</p>
+          <p class="text-body-l italic text-fg-primary flex-1">{t.quote}</p>
+          <p class="text-body-s font-medium text-fg-secondary">— {t.role}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+---
+const filters = ['Branche', 'Service', 'Plattform'];
+---
+
+<section class="bg-bg-page">
+  <div class="max-w-layout mx-auto px-md md:px-2xl pt-3xl pb-2xl space-y-md">
+    <p class="text-eyebrow text-fg-brand">REFERENZEN</p>
+    <h1 class="text-5xl md:text-display-xl font-bold tracking-tight text-fg-primary">Was wir geliefert haben.</h1>
+    <p class="max-w-3xl text-body-l text-fg-secondary">
+      280’000 migrierte Kundenstämme. 18-auf-6-Tage-Regressionszyklen. 11-Monate-CRM-Einführungen. Und etwa 200 weitere Projekte, von denen wir hier eine Auswahl zeigen.
+    </p>
+    <div class="flex flex-wrap gap-sm pt-sm">
+      {filters.map(f => (
+        <button class="inline-flex items-center gap-xs rounded border border-border-default bg-bg-surface px-md py-2xs text-body-m font-medium text-fg-primary hover:border-border-strong transition-colors">
+          <span>{f}</span>
+          <span class="text-fg-muted" aria-hidden="true">▾</span>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>

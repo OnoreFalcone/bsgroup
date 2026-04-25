@@ -1,0 +1,24 @@
+---
+import type { ServiceCapability } from '@/data/services';
+
+interface Props {
+  capabilities: ServiceCapability[];
+  heading?: string;
+}
+const { capabilities, heading = 'Was wir tun.' } = Astro.props;
+---
+
+<section class="bg-bg-surface-subtle">
+  <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl space-y-2xl">
+    <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">{heading}</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+      {capabilities.map(cap => (
+        <div class="flex flex-col gap-sm rounded-lg border border-border-subtle bg-bg-surface p-lg">
+          <p class="text-5xl font-bold text-fg-brand opacity-30">{cap.num}</p>
+          <h3 class="text-h3 font-semibold text-fg-primary">{cap.name}</h3>
+          <p class="text-body-m text-fg-secondary">{cap.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

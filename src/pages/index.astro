@@ -1,0 +1,31 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/sections/Hero.astro';
+import ProofBar from '@components/sections/ProofBar.astro';
+import LogoSlider from '@components/sections/LogoSlider.astro';
+import ServiceTeasersGrid from '@components/sections/ServiceTeasersGrid.astro';
+import FeaturedCases from '@components/sections/FeaturedCases.astro';
+import KpiStrip from '@components/sections/KpiStrip.astro';
+import UeberUnsTeaser from '@components/sections/UeberUnsTeaser.astro';
+import InsightsTeaser from '@components/sections/InsightsTeaser.astro';
+import FinalCta from '@components/sections/FinalCta.astro';
+---
+
+<BaseLayout
+  title="BSGroup"
+  description="Wir bringen Ihre Projekte ins Ziel — pragmatisch, erfahren und verbindlich. Seit über 30 Jahren."
+>
+  <Hero
+    eyebrow="SCHWEIZER FINANZPLATZ · SEIT 1995"
+    headline="Aus Konzept wird Realität."
+    subline="Wir bringen Ihre Projekte ins Ziel — pragmatisch, erfahren und verbindlich. Seit über 30 Jahren."
+  />
+  <ProofBar />
+  <LogoSlider />
+  <ServiceTeasersGrid />
+  <FeaturedCases />
+  <KpiStrip />
+  <UeberUnsTeaser />
+  <InsightsTeaser />
+  <FinalCta />
+</BaseLayout>

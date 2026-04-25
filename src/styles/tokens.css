@@ -1,0 +1,36 @@
+/* Design tokens — semantic layer.
+   Values match the Figma "Color" collection (Light mode).
+   Adding a Dark mode = duplicate this block under [data-theme="dark"]. */
+
+:root {
+  /* Backgrounds */
+  --color-bg-page:             #FFFFFF;
+  --color-bg-surface:          #FFFFFF;
+  --color-bg-surface-subtle:   #F7F8FA;
+  --color-bg-inverse:          #001789;
+  --color-bg-inverse-subtle:   #000526;
+  --color-bg-brand:            #001789;
+  --color-bg-brand-hover:      #001370;
+  --color-bg-brand-subtle:     #E6E8F4;
+  --color-bg-muted:            #EEF0F4;
+
+  /* Text */
+  --color-text-primary:    #1A1B22;
+  --color-text-secondary:  #525662;
+  --color-text-muted:      #757A8C;
+  --color-text-inverse:    #FFFFFF;
+  --color-text-brand:      #001789;
+  --color-text-brand-hover:#001370;
+  --color-text-on-brand:   #FFFFFF;
+  --color-text-error:      #DC2626;
+  --color-text-success:    #16A34A;
+
+  /* Borders */
+  --color-border-default: #DEE1E8;
+  --color-border-subtle:  #EEF0F4;
+  --color-border-strong:  #9CA3B5;
+  --color-border-brand:   #001789;
+  --color-border-inverse: #3F424E;
+  --color-border-focus:   #001A99;
+  --color-border-error:   #DC2626;
+}
