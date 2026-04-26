@@ -97,10 +97,22 @@ const openRoles = [
       </div>
 
       <div class="space-y-md">
-        {openRoles.map(role => (
+        {openRoles.map(role => {
+          // Split off the gender tag "(m/w/d)" so we can render it as a single
+          // non-breaking unit. Without this the browser splits at the slashes
+          // (`break-words` allows mid-word breaks at any char on narrow viewports).
+          const tagMatch = role.title.match(/^(.*?)\s*(\(m\/w\/?d?\))\s*$/);
+          const titleMain = tagMatch ? tagMatch[1] : role.title;
+          const titleTag  = tagMatch ? tagMatch[2] : '';
+          return (
           <article class="bg-bg-surface-subtle rounded-lg p-lg md:p-xl space-y-md">
             <div class="space-y-2xs">
-              <h3 class="text-h3 md:text-h2 font-semibold text-fg-primary break-words hyphens-auto" lang="de">{role.title}</h3>
+              <h3 class="text-h3 md:text-h2 font-semibold text-fg-primary break-words hyphens-auto" lang="de">
+                {titleMain}
+                {titleTag && (
+                  <>{' '}<span class="whitespace-nowrap">{titleTag}</span></>
+                )}
+              </h3>
               <p class="text-body-l text-fg-secondary break-words hyphens-auto" lang="de">{role.summary}</p>
             </div>
             <div class="space-y-xs">
@@ -118,7 +130,8 @@ const openRoles = [
               </a>
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>
