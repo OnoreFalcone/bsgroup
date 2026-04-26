@@ -1,0 +1,90 @@
+---
+// Kompetenzen — depth/competence layer between "Was wir liefern" (services)
+// and "Was wir geliefert haben" (cases). Three buckets: Plattformen, Methoden,
+// Rollen. Each gets a Lucide line-icon (MIT-licensed, lucide.dev).
+
+type Competence = {
+  num: string;
+  icon: 'layers' | 'route' | 'users';
+  title: string;
+  body: string;
+};
+
+const icons: Record<Competence['icon'], string> = {
+  layers: `
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/>
+      <path d="m6.08 9.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59"/>
+      <path d="m6.08 14.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59"/>
+    </svg>`,
+  route: `
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="6" cy="19" r="3"/>
+      <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/>
+      <circle cx="18" cy="5" r="3"/>
+    </svg>`,
+  users: `
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 21a8 8 0 0 0-16 0"/>
+      <circle cx="10" cy="8" r="5"/>
+      <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/>
+    </svg>`,
+};
+
+const competences: Competence[] = [
+  {
+    num: '01',
+    icon: 'layers',
+    title: 'Plattformen — aus eigener Einführung.',
+    body: 'Avaloq, Finnova, Adcubum SYRIUS, BSI CRM — die vier Plattformen, die den Schweizer Finanzplatz tragen, kennen wir aus über 200 Mandaten. Keine Demo-Lizenz, keine Schulungs-Folien — eigene Einführungen seit den frühen Versionen. Daneben Tosca für Test-Automatisierung, Confluence, MS-365 wo es sein muss.',
+  },
+  {
+    num: '02',
+    icon: 'route',
+    title: 'Methoden — agil, klassisch, oder hybrid. Was das Vorhaben verlangt.',
+    body: 'Wir kommen nicht mit einem Methoden-Set, das wir verteidigen müssen. SAFe, Scrum, Wasserfall, BPMN-Modellierung, UML-Dokumentation — Werkzeug, nicht Religion. Welches Vorgehen richtig ist, entscheidet die Regulatorik und das Risiko, nicht die Beratendenmode.',
+  },
+  {
+    num: '03',
+    icon: 'users',
+    title: 'Rollen — vom Programm bis zur Testautomatisierung.',
+    body: 'Programmleitung, PMO, Business Analyse, Requirements Engineering, Software Engineering, Test-Management, Test-Automatisierung — unter einem Dach, mit eigenen Mitarbeitenden. Keine Subunternehmer-Schleifen, keine Body-Shopping-Mark-up-Kette zwischen Ihnen und der Person, die liefert.',
+  },
+];
+---
+
+<section class="bg-bg-surface-subtle">
+  <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl space-y-2xl">
+
+    <div class="space-y-md max-w-3xl">
+      <p class="text-eyebrow text-fg-brand">KOMPETENZEN</p>
+      <h2 class="text-4xl md:text-display-l font-bold text-fg-primary break-words hyphens-auto" lang="de">
+        Was wir können — und was wir bewusst nicht können.
+      </h2>
+      <p class="text-body-l text-fg-secondary">
+        Spezialisierung schlägt Breite. Hier, wo wir tief sind.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-2xl gap-y-xl">
+      {competences.map(c => (
+        <div class="space-y-sm">
+          <div class="text-fg-brand" set:html={icons[c.icon]} />
+
+          <div class="flex items-baseline gap-sm pt-2xs">
+            <span class="text-3xl md:text-4xl font-bold text-fg-brand leading-none">{c.num}</span>
+            <span class="h-px flex-1 bg-border-default"></span>
+          </div>
+
+          <h3 class="text-h3 font-semibold text-fg-primary break-words hyphens-auto" lang="de">
+            {c.title}
+          </h3>
+          <p class="text-body-m text-fg-secondary">
+            {c.body}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
