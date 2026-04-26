@@ -1,0 +1,60 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+const links = [
+  { label: 'Startseite',                  href: '/' },
+  { label: 'Services',                    href: '/services/project-services' },
+  { label: 'Referenzen',                  href: '/referenzen' },
+  { label: 'Über uns',                    href: '/ueber-uns' },
+  { label: 'Karriere',                    href: '/karriere' },
+  { label: 'Kontakt',                     href: '/kontakt' },
+];
+---
+
+<BaseLayout
+  title="Seite nicht gefunden"
+  description="Diese Seite existiert nicht. Eine der Übersichten unten hilft weiter."
+>
+  <section class="bg-bg-page">
+    <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-5xl">
+      <div class="max-w-prose space-y-md">
+        <p class="text-eyebrow text-fg-brand">404</p>
+        <h1 class="text-5xl md:text-display-l font-bold tracking-tight text-fg-primary">
+          Hier ist nichts.
+        </h1>
+        <p class="text-body-l text-fg-secondary">
+          Diese Seite existiert nicht — oder nicht mehr. Falls Sie über einen alten Link hierher gekommen sind, finden Sie unten die wichtigsten Einstiege.
+        </p>
+        <div class="pt-md">
+          <a
+            href="/"
+            class="inline-flex items-center gap-2xs bg-bg-brand text-fg-on-brand px-lg py-sm rounded font-semibold hover:bg-bg-brand-hover transition-colors"
+          >
+            Zur Startseite <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-surface-subtle border-t border-border-subtle">
+    <div class="max-w-layout mx-auto px-md md:px-2xl py-2xl md:py-3xl">
+      <div class="space-y-lg">
+        <p class="text-eyebrow text-fg-muted">DIREKT WEITER</p>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
+          {links.map(l => (
+            <li>
+              <a
+                href={l.href}
+                class="flex items-center justify-between gap-sm bg-bg-page rounded-lg px-md py-sm border border-border-subtle text-body-l font-medium text-fg-primary hover:border-border-brand hover:text-fg-brand transition-colors"
+              >
+                <span>{l.label}</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

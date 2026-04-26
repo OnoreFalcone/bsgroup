@@ -1,0 +1,83 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Kontakt"
+  description="Buckhauserstrasse 24, 8048 Zürich. Anfrage an backoffice@bsgroup.ch oder +41 44 441 44 44 — Antwort durch eine Senior-Beraterin oder einen Senior-Berater."
+>
+  <section class="bg-bg-page">
+    <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl">
+      <div class="max-w-3xl space-y-md">
+        <p class="text-eyebrow text-fg-brand">KONTAKT</p>
+        <h1 class="text-5xl md:text-display-l font-bold tracking-tight text-fg-primary">
+          Reden wir.
+        </h1>
+        <p class="text-body-l text-fg-secondary">
+          Ob konkrete Projektanfrage oder erste Sondierung — eine Senior-Beraterin oder ein Senior-Berater antwortet direkt. Keine Sales-Pipeline, keine Account-Manager-Schleifen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-surface-subtle">
+    <div class="max-w-layout mx-auto px-md md:px-2xl py-2xl md:py-3xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+
+        <div class="space-y-sm">
+          <p class="text-eyebrow text-fg-muted">STANDORT</p>
+          <p class="text-h3 font-semibold text-fg-primary">Business Solution Group AG</p>
+          <address class="not-italic text-body-l text-fg-secondary leading-relaxed">
+            Buckhauserstrasse 24<br />
+            8048 Zürich<br />
+            Schweiz
+          </address>
+        </div>
+
+        <div class="space-y-md">
+          <div class="space-y-2xs">
+            <p class="text-eyebrow text-fg-muted">DIREKTKONTAKT</p>
+            <p class="text-body-m text-fg-secondary">Mo–Fr, 08:00–18:00</p>
+          </div>
+          <div class="flex flex-col gap-sm">
+            <a
+              href="mailto:backoffice@bsgroup.ch"
+              class="inline-flex items-center justify-between gap-sm bg-bg-brand text-fg-on-brand px-lg py-md rounded font-semibold hover:bg-bg-brand-hover transition-colors"
+            >
+              <span>backoffice@bsgroup.ch</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a
+              href="tel:+41444414444"
+              class="inline-flex items-center justify-between gap-sm border border-border-brand text-fg-brand px-lg py-md rounded font-semibold hover:bg-bg-brand-subtle transition-colors"
+            >
+              <span>+41 44 441 44 44</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-page">
+    <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl">
+      <div class="max-w-prose space-y-md">
+        <h2 class="text-3xl md:text-h1 font-semibold text-fg-primary">Was uns hilft, wenn Sie schreiben.</h2>
+        <p class="text-body-l text-fg-secondary">
+          Damit wir mit der ersten Antwort schon Substanz liefern können, hilft uns, wenn Ihre Anfrage diese Punkte abdeckt — drei Sätze reichen pro Punkt.
+        </p>
+        <ul class="space-y-sm text-body-l text-fg-secondary list-disc pl-md marker:text-fg-brand">
+          <li>Branche und Plattform — Avaloq, Finnova, Adcubum SYRIUS, BSI CRM oder etwas anderes.</li>
+          <li>Vorhaben in zwei Sätzen — was steht an, was ist der Anlass.</li>
+          <li>Zeithorizont und Budget-Rahmen, sofern bereits abgesteckt.</li>
+          <li>Wer auf Ihrer Seite der primäre Ansprechpartner ist.</li>
+        </ul>
+        <p class="text-body-l text-fg-secondary">
+          Wenn etwas davon noch offen ist, schreiben Sie trotzdem. Genau dafür gibt es das erste Gespräch.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

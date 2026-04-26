@@ -10,23 +10,82 @@ const navItems = [
 
 <header class="sticky top-0 z-50 bg-bg-page border-b border-border-subtle">
   <div class="max-w-layout mx-auto px-md md:px-2xl flex items-center justify-between h-16">
-    <a href="/" class="text-xl font-bold text-fg-primary hover:text-fg-brand transition-colors">BSGroup</a>
-    <nav class="hidden md:flex items-center gap-lg">
+    <a href="/" class="inline-flex items-center hover:opacity-80 transition-opacity" aria-label="BSGroup — Startseite">
+      <img
+        src="/logos/bsg/logo-business-solution-group.png"
+        alt="BSGroup"
+        class="h-7 md:h-8 w-auto"
+      />
+    </a>
+    <nav class="hidden lg:flex items-center gap-lg">
       {navItems.map(item => (
         <a href={item.href} class="text-body-m font-medium text-fg-primary hover:text-fg-brand transition-colors">
           {item.label}
         </a>
       ))}
     </nav>
-    <a href="/kontakt" class="hidden md:inline-flex items-center gap-2xs bg-bg-brand text-fg-on-brand px-md py-2xs rounded font-semibold hover:bg-bg-brand-hover transition-colors">
+    <a href="/kontakt" class="hidden lg:inline-flex items-center gap-2xs bg-bg-brand text-fg-on-brand px-md py-2xs rounded font-semibold hover:bg-bg-brand-hover transition-colors">
       Kontakt
     </a>
-    <button class="md:hidden text-fg-primary" aria-label="Menü öffnen">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <button
+      id="mobile-menu-toggle"
+      class="lg:hidden text-fg-primary"
+      aria-label="Menü öffnen"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+    >
+      <svg id="mobile-menu-icon-open"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="4" y1="6" x2="20" y2="6" />
         <line x1="4" y1="12" x2="20" y2="12" />
         <line x1="4" y1="18" x2="20" y2="18" />
       </svg>
+      <svg id="mobile-menu-icon-close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="6" y1="6" x2="18" y2="18" />
+        <line x1="18" y1="6" x2="6" y2="18" />
+      </svg>
     </button>
   </div>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-border-subtle bg-bg-page">
+    <nav class="max-w-layout mx-auto px-md py-md flex flex-col gap-xs">
+      {navItems.map(item => (
+        <a href={item.href} class="block text-body-l font-medium text-fg-primary hover:text-fg-brand transition-colors py-2xs">
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="/kontakt"
+        class="mt-xs inline-flex items-center justify-center gap-2xs bg-bg-brand text-fg-on-brand px-md py-sm rounded font-semibold hover:bg-bg-brand-hover transition-colors"
+      >
+        Kontakt
+      </a>
+    </nav>
+  </div>
 </header>
+
+<script>
+  const setup = () => {
+    const btn = document.getElementById('mobile-menu-toggle');
+    if (!btn || btn.dataset.wired === 'true') return;
+
+    const menu  = document.getElementById('mobile-menu');
+    const open  = document.getElementById('mobile-menu-icon-open');
+    const close = document.getElementById('mobile-menu-icon-close');
+    if (!menu || !open || !close) return;
+
+    btn.dataset.wired = 'true';
+
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const next = !expanded;
+      btn.setAttribute('aria-expanded', String(next));
+      btn.setAttribute('aria-label', next ? 'Menü schliessen' : 'Menü öffnen');
+      menu.classList.toggle('hidden', !next);
+      open.classList.toggle('hidden',  next);
+      close.classList.toggle('hidden', !next);
+    });
+  };
+
+  setup();
+  document.addEventListener('astro:page-load', setup);
+</script>

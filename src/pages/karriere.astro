@@ -1,0 +1,148 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import FinalCta from '@components/sections/FinalCta.astro';
+
+const benefits = [
+  { head: 'Flexibel arbeiten',         body: 'Vertrauensarbeitszeit, Homeoffice und Mandatsgestaltung — abgestimmt auf das Projekt, nicht auf eine Politik.' },
+  { head: 'Lernen mit Mandat',         body: 'Weiterbildungsbudget und Lernzeit, eingebettet in echte Kundenmandate. Keine Zertifikats-Sammelei ohne Anschluss.' },
+  { head: 'Eigene Beratende',          body: 'Sie sind bei BSGroup angestellt — keine Subunternehmer, keine Freelancer-Schleifen, keine Zwischenstationen.' },
+  { head: 'Verantwortung früh',        body: 'Vom ersten Mandat an Steuerung, Kundenkontakt und Entscheidungen — nicht erst nach drei Jahren Hospitanz.' },
+  { head: 'Sozialleistungen',          body: 'BVG-Lösung deutlich über dem Obligatorium, voll bezahlte UVG-Zusatz, Krankentaggeld 100 % über zwei Jahre.' },
+  { head: 'Erfolgsbeteiligung',        body: 'Jahres-Bonusmodell für alle Beratenden — gekoppelt an Mandatserfolg, nicht an undurchsichtige Vertriebs-KPIs.' },
+  { head: 'Teamevents',                body: 'Quartalsweise Treffen mit Substanz — Methoden-Roundtables, Plattform-Deep-Dives, Off-Sites.' },
+  { head: 'Verpflegung im Office',     body: 'Zürich Albisrieden: Kaffee, Snacks, regelmässige Team-Lunches im Haus.' },
+  { head: 'Standort Zürich',           body: 'Buckhauserstrasse 24, 8048 Zürich — Limmattalbahn und Bahnhof Altstetten in Gehdistanz.' },
+];
+
+const openRoles = [
+  {
+    title: 'Business Analyst / Consultant (m/w/d)',
+    summary: 'Anforderungs-Engineering und Lösungsdesign in regulierten Bank- und Versicherungsprojekten — von der Initialisierung bis zur Umsetzung.',
+    must: [
+      'Mehrjährige Erfahrung in Bank- oder Versicherungsprojekten',
+      'Sicherheit in Anforderungs-Methodik (BPMN, Use Cases, User Stories)',
+      'Deutsch verhandlungssicher, Englisch arbeitsfähig',
+    ],
+  },
+  {
+    title: 'Business Analyst / Requirements Engineer Kundenschnittstelle (m/w/d)',
+    summary: 'Direkter Draht zu Fachbereich und IT in Schweizer Finanzinstituten — Sie übersetzen Geschäftsanforderungen in umsetzbare Lösungsbausteine.',
+    must: [
+      'Erfahrung in Kundenschnittstellen-Themen (Self-Onboarding, Digital Banking, CRM)',
+      'Plattform-Kenntnisse: Avaloq, Finnova, BSI CRM oder Adcubum SYRIUS von Vorteil',
+      'Deutsch verhandlungssicher, Englisch arbeitsfähig',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Karriere"
+  description="Beratendentätigkeit am Schweizer Finanzplatz, eigentümergeführt, ohne Body-Shopping. Offene Stellen und Initiativbewerbung."
+>
+  <section class="bg-bg-page">
+    <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_520px] xl:grid-cols-[1fr_640px] gap-2xl items-center">
+        <div class="space-y-md">
+          <p class="text-eyebrow text-fg-brand">KARRIERE</p>
+          <h1 class="text-5xl md:text-display-l font-bold tracking-tight text-fg-primary">
+            Macher gesucht.
+          </h1>
+          <p class="text-body-l text-fg-secondary">
+            Wir suchen Beraterinnen und Berater, die liefern statt präsentieren wollen. Wer hier anfängt, übernimmt früh Verantwortung — und behält sie über mehrere Mandate hinweg. Bei uns bleiben Beratende im Schnitt über acht Jahre. Das ist keine Zahl, sondern eine Strategie.
+          </p>
+          <p class="text-body-l text-fg-secondary">
+            Wir wachsen, wenn die richtigen Leute kommen — nicht wenn die Pipeline es will. Kein Body-Shopping, keine Subunternehmer-Schleifen. Wer für BSGroup arbeitet, ist bei BSGroup angestellt.
+          </p>
+        </div>
+        <div class="aspect-[4/5] rounded-lg overflow-hidden">
+          <img
+            src="/images/scenery/QualityServices.jpg"
+            alt="Zwei Bergsteiger an einer Felskante — einer reicht dem anderen die Hand"
+            class="h-full w-full object-cover"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-surface-subtle">
+    <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl space-y-2xl">
+      <div class="space-y-xs max-w-3xl">
+        <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">Was Sie bei uns finden.</h2>
+        <p class="text-body-l text-fg-secondary">
+          Keine Liste mit Frucht-Mittwoch und Tischfussball — sondern was den Alltag tatsächlich trägt.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2xl gap-y-xl">
+        {benefits.map(b => (
+          <div class="space-y-xs">
+            <h3 class="text-h3 font-semibold text-fg-primary">{b.head}</h3>
+            <p class="text-body-m text-fg-secondary">{b.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-page">
+    <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl space-y-2xl">
+      <div class="space-y-xs max-w-3xl">
+        <p class="text-eyebrow text-fg-brand">OFFENE STELLEN</p>
+        <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">Aktuell suchen wir.</h2>
+      </div>
+
+      <div class="space-y-md">
+        {openRoles.map(role => (
+          <article class="bg-bg-surface-subtle rounded-lg p-lg md:p-xl space-y-md">
+            <div class="space-y-2xs">
+              <h3 class="text-h3 md:text-h2 font-semibold text-fg-primary break-words hyphens-auto" lang="de">{role.title}</h3>
+              <p class="text-body-l text-fg-secondary break-words hyphens-auto" lang="de">{role.summary}</p>
+            </div>
+            <div class="space-y-xs">
+              <p class="text-eyebrow text-fg-muted">VORAUSSETZUNGEN</p>
+              <ul class="space-y-2xs text-body-m text-fg-secondary list-disc pl-md marker:text-fg-brand">
+                {role.must.map(m => <li>{m}</li>)}
+              </ul>
+            </div>
+            <div class="pt-xs">
+              <a
+                href={`mailto:backoffice@bsgroup.ch?subject=${encodeURIComponent('Bewerbung: ' + role.title)}`}
+                class="inline-flex items-center gap-2xs bg-bg-brand text-fg-on-brand px-lg py-sm rounded font-semibold hover:bg-bg-brand-hover transition-colors"
+              >
+                Auf diese Stelle bewerben <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-surface-subtle">
+    <div class="max-w-layout mx-auto px-md md:px-2xl py-2xl md:py-3xl">
+      <div class="max-w-prose space-y-md">
+        <h2 class="text-3xl md:text-h1 font-semibold text-fg-primary">Keine passende Stelle dabei?</h2>
+        <p class="text-body-l text-fg-secondary">
+          Initiativbewerbungen sind ausdrücklich erwünscht. Schicken Sie uns Ihr Dossier — Lebenslauf, Mandatsliste, kurze Notiz, was Sie bei uns tun wollen.
+        </p>
+        <a
+          href="mailto:backoffice@bsgroup.ch?subject=Initiativbewerbung"
+          class="inline-flex items-center gap-2xs bg-bg-brand text-fg-on-brand px-lg py-sm rounded font-semibold hover:bg-bg-brand-hover transition-colors"
+        >
+          Initiativbewerbung senden <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <FinalCta
+    heading="Wir antworten persönlich."
+    body="Bewerbungen gehen direkt an unser Backoffice. Eine Senior-Beraterin oder ein Senior-Berater meldet sich innerhalb weniger Tage — kein Bot, kein Tracking-System."
+    primaryLabel="Bewerbung an Backoffice"
+    primaryHref="mailto:backoffice@bsgroup.ch"
+    secondaryLabel="Über uns kennenlernen"
+    secondaryHref="/ueber-uns"
+  />
+</BaseLayout>
