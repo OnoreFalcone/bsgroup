@@ -63,7 +63,17 @@ export const cultureItems: CultureItem[] = [
   { head: 'Verbindlich, nicht artig.', body: 'Wenn ein Projekt-Vorgehen falsch ist, sagen wir das. Wenn ein Plan unrealistisch ist, schreiben wir es ins Steering. Wer ehrliche Beratung will, ruft uns. Wer Pleasing will, hat genug Auswahl im Markt.' },
 ];
 
-export const proofPoints = '30+ Jahre  ·  4 Schweizer Privatbanken  ·  3 Kantonalbanken  ·  6 Krankenversicherer  ·  5 Versicherer  ·  200+ erfolgreich abgeschlossene Projekte';
+// NBSP ( ) glues the number to the first noun so "3 Kantonalbanken"
+// never breaks to "3" + "Kantonalbanken" on different lines.
+// Subsequent words break normally.
+export const proofPoints = [
+  '30+ Jahre',
+  '4 Schweizer Privatbanken',
+  '3 Kantonalbanken',
+  '6 Krankenversicherer',
+  '5 Versicherer',
+  '200+ erfolgreich abgeschlossene Projekte',
+];
 
 // Logos for proof bar (7 most-recognisable) and slider (9 financial-services brands)
 // Note: served from /public/logos/clients/

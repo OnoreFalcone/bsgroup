@@ -13,12 +13,70 @@ const bgClass = background === 'surface-subtle' ? 'bg-bg-surface-subtle' : 'bg-b
 <section class={bgClass}>
   <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-lg md:gap-xl">
-      {kpis.map(kpi => (
-        <div class="space-y-2xs">
-          <p class="text-4xl md:text-5xl lg:text-6xl font-bold text-fg-brand">{kpi.num}</p>
-          <p class="text-body-m font-medium text-fg-secondary max-w-[240px] break-words hyphens-auto" lang="de">{kpi.label}</p>
-        </div>
-      ))}
+      {kpis.map(kpi => {
+        const numericMatch = kpi.num.match(/\d+/);
+        const targetValue = numericMatch ? parseInt(numericMatch[0]) : 0;
+        const suffix = kpi.num.replace(/\d+/g, '');
+
+        return (
+          <div class="space-y-2xs kpi-item">
+            <p class="text-4xl md:text-5xl lg:text-6xl font-bold text-fg-brand flex items-baseline">
+              <span 
+                class="kpi-number" 
+                data-target={targetValue}
+              >0</span>
+              <span class="text-3xl md:text-4xl lg:text-5xl">{suffix}</span>
+            </p>
+            <p class="text-body-m font-medium text-fg-secondary max-w-[240px] break-words hyphens-auto" lang="de">{kpi.label}</p>
+          </div>
+        );
+      })}
     </div>
   </div>
 </section>
+
+<script>
+  const animateValue = (obj: HTMLElement, start: number, end: number, duration: number) => {
+    let startTimestamp: number | null = null;
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.textContent = Math.floor(progress * (end - start) + start).toString();
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  };
+
+  const setup = () => {
+    const items = document.querySelectorAll<HTMLElement>('.kpi-item:not([data-wired])');
+    if (!items.length) return;
+
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const numberEl = entry.target.querySelector<HTMLElement>('.kpi-number');
+        if (!numberEl || numberEl.dataset.animated === 'true') continue;
+        const target = parseInt(numberEl.dataset.target ?? '0', 10);
+        if (reduced) {
+          numberEl.textContent = String(target);
+        } else {
+          animateValue(numberEl, 0, target, 2000);
+        }
+        numberEl.dataset.animated = 'true';
+        observer.unobserve(entry.target);
+      }
+    }, { threshold: 0.5 });
+
+    items.forEach((item) => {
+      item.dataset.wired = 'true';
+      observer.observe(item);
+    });
+  };
+
+  setup();
+  document.addEventListener('astro:page-load', setup);
+</script>

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import FinalCta from '@components/sections/FinalCta.astro';
+import { services } from '@/data/services';
+---
+
+<BaseLayout
+  title="Services"
+  description="Vier Services für den Schweizer Finanzplatz: Project, Solution, Quality, Software. Spezialisiert auf Banken und Versicherungen."
+>
+  <section class="bg-bg-page">
+    <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl">
+      <div class="max-w-prose space-y-md">
+        <p class="text-eyebrow text-fg-brand">SERVICES</p>
+        <h1 class="text-5xl md:text-display-l font-bold tracking-tight text-fg-primary">
+          Vom Konzept ins Ziel. Unsere vier Services für Ihren Erfolg.
+        </h1>
+        <p class="text-body-l text-fg-secondary">
+          Von Projektleitung bis Custom Engineering — vier Spezialisierungen, ausgerichtet auf Banken, Versicherungen und Krankenversicherer in der Schweiz. Hier die Übersicht; jeder Service hat eine eigene Detailseite.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-surface-subtle border-t border-border-subtle">
+    <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-md md:gap-lg">
+        {services.map(s => (
+          <article class="bg-bg-page rounded-lg border border-border-subtle p-lg md:p-xl space-y-md flex flex-col">
+            <div class="space-y-xs">
+              <p class="text-eyebrow text-fg-brand">{s.eyebrow.toUpperCase()}</p>
+              <h2 class="text-3xl md:text-h1 font-bold tracking-tight text-fg-primary break-words hyphens-auto" lang="de">
+                {s.headline}
+              </h2>
+              <p class="text-body-m text-fg-secondary">{s.sub}</p>
+            </div>
+
+            <ul class="space-y-2xs text-body-m text-fg-secondary list-disc pl-md marker:text-fg-brand">
+              {s.capabilities.slice(0, 4).map(c => (
+                <li>
+                  <span class="font-medium text-fg-primary">{c.name}</span>
+                  {' — '}{c.desc}
+                </li>
+              ))}
+            </ul>
+
+            <div class="flex-1"></div>
+
+            <div>
+              <a
+                href={`/services/${s.slug}`}
+                class="inline-flex items-center gap-2xs text-body-m font-semibold text-fg-brand hover:text-fg-brand-hover transition-colors"
+              >
+                {s.ctaLabel} <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FinalCta />
+</BaseLayout>

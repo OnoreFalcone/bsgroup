@@ -1,9 +1,45 @@
 ---
 import { proofPoints } from '@/data/site';
+
+// On smartphones the inline separators between every pair crowd the text at
+// narrow widths. Group the facts into pairs of two — each pair is one row,
+// with a `·` between the two facts in the pair. No `·` between rows.
+const mobileRows: string[][] = [];
+for (let i = 0; i < proofPoints.length; i += 2) {
+  mobileRows.push(proofPoints.slice(i, i + 2));
+}
 ---
 
 <section class="bg-bg-surface-subtle">
   <div class="max-w-layout mx-auto px-md md:px-2xl py-lg">
-    <p class="text-center text-body-m font-medium text-fg-secondary">{proofPoints}</p>
+
+    {/* Mobile (< 640px): paired rows, no separator between rows */}
+    <div class="sm:hidden text-center text-body-m font-medium text-fg-secondary space-y-2xs">
+      {mobileRows.map(row => (
+        <p>
+          {row.map((point, i) => (
+            <>
+              {i > 0 && (
+                <>{' '}<span aria-hidden="true" class="text-fg-muted">·</span>{' '}</>
+              )}
+              {point}
+            </>
+          ))}
+        </p>
+      ))}
+    </div>
+
+    {/* Tablet & desktop (>= 640px): single inline flow with all separators */}
+    <p class="hidden sm:block text-center text-body-m font-medium text-fg-secondary">
+      {proofPoints.map((point, i) => (
+        <>
+          {i > 0 && (
+            <>{' '}<span aria-hidden="true" class="text-fg-muted">·</span>{' '}</>
+          )}
+          {point}
+        </>
+      ))}
+    </p>
+
   </div>
 </section>

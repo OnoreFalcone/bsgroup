@@ -1,19 +1,42 @@
 ---
 import { sliderLogos } from '@/data/site';
-// Track is duplicated so the marquee animation can loop seamlessly.
-const track = [...sliderLogos, ...sliderLogos];
+// Triplicating the set to ensure absolutely seamless looping on all screen widths
+const track = [...sliderLogos, ...sliderLogos, ...sliderLogos];
 ---
 
 <section class="bg-bg-surface-subtle py-lg overflow-hidden border-y border-border-subtle">
-  <div class="flex w-max animate-marquee items-center gap-2xl md:gap-3xl px-2xl">
-    {track.map(logo => (
+  <div class="flex w-max animate-marquee items-center">
+    {track.map((logo, index) => (
       <img
         src={`/logos/clients/${logo.filename}`}
         alt={logo.alt}
-        class="h-12 md:h-14 w-auto object-contain shrink-0"
+        class="h-10 md:h-12 w-auto object-contain shrink-0 mx-xl md:mx-2xl"
         loading="lazy"
-        aria-hidden={track.indexOf(logo) >= sliderLogos.length ? 'true' : undefined}
+        aria-hidden={index >= sliderLogos.length ? 'true' : undefined}
       />
     ))}
   </div>
 </section>
+
+<style>
+  @keyframes marquee-infinite {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% / 3)); }
+  }
+
+  .animate-marquee {
+    animation: marquee-infinite 30s linear infinite;
+  }
+
+  /* Pause on hover for better UX */
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* Respect reduced-motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none;
+    }
+  }
+</style>

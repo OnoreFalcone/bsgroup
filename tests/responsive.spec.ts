@@ -10,6 +10,7 @@ import { test, expect } from '@playwright/test';
 
 const ROUTES = [
   '/',
+  '/services',
   '/services/project-services',
   '/services/quality-services',
   '/referenzen',
