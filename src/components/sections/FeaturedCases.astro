@@ -1,12 +1,13 @@
 ---
 import { featuredCases } from '@/data/cases';
+import { withBase } from '@/utils/url';
 ---
 
 <section class="bg-bg-page overflow-hidden">
   <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl space-y-2xl">
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-md reveal-fade-in">
       <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">Was wir geliefert haben.</h2>
-      <a href="/referenzen" class="inline-flex items-center gap-2xs text-body-m font-medium text-fg-brand hover:text-fg-brand-hover transition-colors">
+      <a href={withBase('/referenzen')} class="inline-flex items-center gap-2xs text-body-m font-medium text-fg-brand hover:text-fg-brand-hover transition-colors">
         Alle 200+ Referenzen <span aria-hidden="true">→</span>
       </a>
     </div>

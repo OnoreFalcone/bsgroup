@@ -3,6 +3,7 @@ import '@/styles/global.css';
 import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
 import { ClientRouter } from 'astro:transitions';
+import { withBase } from '@/utils/url';
 
 interface Props {
   title: string;
@@ -10,7 +11,8 @@ interface Props {
   ogImage?: string;
 }
 
-const { title, description, ogImage = '/og-default.jpg' } = Astro.props;
+const { title, description, ogImage = withBase('/og-default.jpg') } = Astro.props;
+const faviconHref = withBase('/logos/bsg/business_solution_group_logo.jpg');
 const fullTitle = title === 'BSGroup' ? title : `${title} — BSGroup`;
 ---
 
@@ -19,7 +21,7 @@ const fullTitle = title === 'BSGroup' ? title : `${title} — BSGroup`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/jpeg" href="/logos/bsg/business_solution_group_logo.jpg" />
+    <link rel="icon" type="image/jpeg" href={faviconHref} />
     <link rel="preconnect" href="https://rsms.me/" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <title>{fullTitle}</title>

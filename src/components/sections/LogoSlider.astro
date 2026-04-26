@@ -1,5 +1,6 @@
 ---
 import { sliderLogos } from '@/data/site';
+import { withBase } from '@/utils/url';
 // Triplicating the set to ensure absolutely seamless looping on all screen widths
 const track = [...sliderLogos, ...sliderLogos, ...sliderLogos];
 ---
@@ -8,7 +9,7 @@ const track = [...sliderLogos, ...sliderLogos, ...sliderLogos];
   <div class="flex w-max animate-marquee items-center">
     {track.map((logo, index) => (
       <img
-        src={`/logos/clients/${logo.filename}`}
+        src={withBase(`/logos/clients/${logo.filename}`)}
         alt={logo.alt}
         class="h-10 md:h-12 w-auto object-contain shrink-0 mx-xl md:mx-2xl"
         loading="lazy"

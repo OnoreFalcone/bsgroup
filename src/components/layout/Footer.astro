@@ -1,41 +1,49 @@
 ---
+import { withBase } from '@/utils/url';
+
 const columns = [
   {
     title: 'Services',
     items: [
-      { label: 'Project Services', href: '/services/project-services' },
-      { label: 'Solution Services', href: '/services/solution-services' },
-      { label: 'Quality Services', href: '/services/quality-services' },
-      { label: 'Software Services', href: '/services/software-services' },
+      { label: 'Project Services', href: withBase('/services/project-services') },
+      { label: 'Solution Services', href: withBase('/services/solution-services') },
+      { label: 'Quality Services', href: withBase('/services/quality-services') },
+      { label: 'Software Services', href: withBase('/services/software-services') },
     ],
   },
   {
     title: 'Unternehmen',
     items: [
-      { label: 'Über uns', href: '/ueber-uns' },
-      { label: 'Karriere', href: '/karriere' },
-      { label: 'Insights', href: '/insights' },
-      { label: 'Referenzen', href: '/referenzen' },
+      { label: 'Über uns', href: withBase('/ueber-uns') },
+      { label: 'Karriere', href: withBase('/karriere') },
+      { label: 'Insights', href: withBase('/insights') },
+      { label: 'Referenzen', href: withBase('/referenzen') },
     ],
   },
   {
     title: 'Kontakt',
     items: [
-      { label: 'Standort Zürich', href: '/kontakt' },
+      { label: 'Standort Zürich', href: withBase('/kontakt') },
       { label: 'backoffice@bsgroup.ch', href: 'mailto:backoffice@bsgroup.ch' },
       { label: 'LinkedIn', href: 'https://linkedin.com/company/bsgroup' },
     ],
   },
 ];
+
+const homeHref       = withBase('/');
+const logoSrc        = withBase('/logos/bsg/logo-bsg-smooth.png');
+const impressumHref  = withBase('/impressum');
+const datenschutzHref = withBase('/datenschutz');
+const agbHref        = withBase('/agb');
 ---
 
 <footer class="bg-bg-inverse text-fg-inverse">
   <div class="max-w-layout mx-auto px-md md:px-2xl pt-3xl pb-lg">
     <div class="flex flex-col lg:flex-row gap-2xl pb-2xl">
       <div class="lg:w-[360px] space-y-sm">
-        <a href="/" class="inline-block">
+        <a href={homeHref} class="inline-block">
           <img
-            src="/logos/bsg/logo-bsg-smooth.png"
+            src={logoSrc}
             alt="BSGroup"
             class="h-8 md:h-10 w-auto brightness-0 invert opacity-90"
           />
@@ -62,9 +70,9 @@ const columns = [
     <div class="border-t border-white/20 pt-sm flex flex-col sm:flex-row justify-between gap-md text-body-s opacity-50">
       <p>© {new Date().getFullYear()} Business Solution Group AG · Zürich</p>
       <ul class="flex gap-md">
-        <li><a href="/impressum" class="hover:opacity-70 transition-opacity">Impressum</a></li>
-        <li><a href="/datenschutz" class="hover:opacity-70 transition-opacity">Datenschutz</a></li>
-        <li><a href="/agb" class="hover:opacity-70 transition-opacity">AGB</a></li>
+        <li><a href={impressumHref} class="hover:opacity-70 transition-opacity">Impressum</a></li>
+        <li><a href={datenschutzHref} class="hover:opacity-70 transition-opacity">Datenschutz</a></li>
+        <li><a href={agbHref} class="hover:opacity-70 transition-opacity">AGB</a></li>
       </ul>
     </div>
   </div>

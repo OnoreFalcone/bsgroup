@@ -1,4 +1,6 @@
 ---
+import { withBase } from '@/utils/url';
+
 interface Props {
   heading?: string;
   body?: string;
@@ -12,9 +14,9 @@ const {
   heading = 'Reden wir über Ihr Vorhaben.',
   body = 'Ob konkrete Projektanfrage oder erste Sondierung — 30 Minuten mit einer unserer Senior-Beraterinnen oder einem Senior-Berater kosten nichts und bringen Klarheit.',
   primaryLabel = 'Termin buchen',
-  primaryHref = '/kontakt',
+  primaryHref = withBase('/kontakt'),
   secondaryLabel = 'Anfrage senden',
-  secondaryHref = '/kontakt',
+  secondaryHref = withBase('/kontakt'),
 } = Astro.props;
 ---
 

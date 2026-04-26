@@ -1,8 +1,12 @@
 ---
+import { withBase } from '@/utils/url';
+
 // Engagement section for /ueber-uns.
 // NOTE: The collage image (`/images/old/BSG-Engagement_Uu-1.jpg`) is from the
 // legacy site (PicCollage stitch with watermark). Slated for replacement by
 // three clean photos post-relaunch — see Relaunch_Plan.md.
+
+const collageSrc = withBase('/images/old/BSG-Engagement_Uu-1.jpg');
 
 const items = [
   {
@@ -36,7 +40,7 @@ const items = [
     </div>
 
     <img
-      src="/images/old/BSG-Engagement_Uu-1.jpg"
+      src={collageSrc}
       alt="Engagement-Collage: Frauen Bob-Team, Segelclub Männedorf, Weihnachtsaktion"
       class="w-full rounded-lg"
       loading="lazy"

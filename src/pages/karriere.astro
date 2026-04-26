@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import FinalCta from '@components/sections/FinalCta.astro';
+import { withBase } from '@/utils/url';
+
+const heroImage = withBase('/images/scenery/QualityServices.jpg');
 
 const benefits = [
   { head: 'Flexibel arbeiten',         body: 'Vertrauensarbeitszeit, Homeoffice und Mandatsgestaltung — abgestimmt auf das Projekt, nicht auf eine Politik.' },
@@ -57,7 +60,7 @@ const openRoles = [
         </div>
         <div class="aspect-[4/5] rounded-lg overflow-hidden">
           <img
-            src="/images/scenery/QualityServices.jpg"
+            src={heroImage}
             alt="Zwei Bergsteiger an einer Felskante — einer reicht dem anderen die Hand"
             class="h-full w-full object-cover"
             loading="eager"
@@ -143,6 +146,6 @@ const openRoles = [
     primaryLabel="Bewerbung an Backoffice"
     primaryHref="mailto:backoffice@bsgroup.ch"
     secondaryLabel="Über uns kennenlernen"
-    secondaryHref="/ueber-uns"
+    secondaryHref={withBase('/ueber-uns')}
   />
 </BaseLayout>

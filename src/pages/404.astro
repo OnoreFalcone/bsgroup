@@ -1,14 +1,17 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import { withBase } from '@/utils/url';
 
 const links = [
-  { label: 'Startseite',                  href: '/' },
-  { label: 'Services',                    href: '/services/project-services' },
-  { label: 'Referenzen',                  href: '/referenzen' },
-  { label: 'Über uns',                    href: '/ueber-uns' },
-  { label: 'Karriere',                    href: '/karriere' },
-  { label: 'Kontakt',                     href: '/kontakt' },
+  { label: 'Startseite', href: withBase('/') },
+  { label: 'Services',   href: withBase('/services') },
+  { label: 'Referenzen', href: withBase('/referenzen') },
+  { label: 'Über uns',   href: withBase('/ueber-uns') },
+  { label: 'Karriere',   href: withBase('/karriere') },
+  { label: 'Kontakt',    href: withBase('/kontakt') },
 ];
+
+const homeHref = withBase('/');
 ---
 
 <BaseLayout
@@ -27,7 +30,7 @@ const links = [
         </p>
         <div class="pt-md">
           <a
-            href="/"
+            href={homeHref}
             class="inline-flex items-center gap-2xs bg-bg-brand text-fg-on-brand px-lg py-sm rounded font-semibold hover:bg-bg-brand-hover transition-colors"
           >
             Zur Startseite <span aria-hidden="true">→</span>

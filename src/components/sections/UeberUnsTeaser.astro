@@ -1,4 +1,7 @@
 ---
+import { withBase } from '@/utils/url';
+const ueberUnsHref = withBase('/ueber-uns');
+const karriereHref = withBase('/karriere');
 ---
 
 <section class="bg-bg-surface-subtle">
@@ -10,13 +13,13 @@
       </p>
       <div class="flex flex-wrap justify-center gap-sm pt-sm">
         <a
-          href="/ueber-uns"
+          href={ueberUnsHref}
           class="inline-flex items-center gap-2xs bg-bg-brand text-fg-on-brand px-lg py-sm rounded font-semibold hover:bg-bg-brand-hover transition-colors"
         >
           Über uns <span aria-hidden="true">→</span>
         </a>
         <a
-          href="/karriere"
+          href={karriereHref}
           class="inline-flex items-center gap-2xs border border-border-brand text-fg-brand px-lg py-sm rounded font-semibold hover:bg-bg-brand-subtle transition-colors"
         >
           Karriere bei BSGroup <span aria-hidden="true">→</span>

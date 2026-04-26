@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import { withBase } from '@/utils/url';
 ---
 
 <BaseLayout
@@ -80,7 +81,7 @@ import BaseLayout from '@layouts/BaseLayout.astro';
         <div class="space-y-sm">
           <h2 class="text-h3 font-semibold text-fg-primary">Datenschutz</h2>
           <p class="text-body-l text-fg-secondary leading-relaxed">
-            Informationen zur Bearbeitung von Personendaten finden Sie in unserer <a href="/datenschutz" class="text-fg-brand hover:underline">Datenschutzerklärung</a>.
+            Informationen zur Bearbeitung von Personendaten finden Sie in unserer <a href={withBase('/datenschutz')} class="text-fg-brand hover:underline">Datenschutzerklärung</a>.
           </p>
         </div>
 

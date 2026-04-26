@@ -1,5 +1,6 @@
 ---
 import { services } from '@/data/services';
+import { withBase } from '@/utils/url';
 ---
 
 <section class="bg-bg-page overflow-hidden">
@@ -9,7 +10,7 @@ import { services } from '@/data/services';
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
       {services.map((service, index) => (
         <a
-          href={`/services/${service.slug}`}
+          href={withBase(`/services/${service.slug}`)}
           class="group flex flex-col gap-sm rounded-lg border border-border-subtle bg-bg-surface p-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-border-brand reveal-slide-up"
           style={`transition-delay: ${index * 100}ms`}
         >

@@ -1,4 +1,6 @@
 ---
+import { withBase } from '@/utils/url';
+
 interface Props {
   eyebrow: string;
   headline: string;
@@ -9,12 +11,15 @@ interface Props {
   imagePosition?: string;
 }
 const { eyebrow, headline, sub, ctaLabel, ctaHref, image, imagePosition = 'center' } = Astro.props;
+
+const resolvedImage = withBase(image);
+const resolvedHref  = withBase(ctaHref);
 ---
 
 <section class="relative overflow-hidden">
   <div class="absolute inset-0">
     <img
-      src={image}
+      src={resolvedImage}
       alt=""
       class="h-full w-full object-cover"
       style={`object-position: ${imagePosition};`}
@@ -34,7 +39,7 @@ const { eyebrow, headline, sub, ctaLabel, ctaHref, image, imagePosition = 'cente
       <p class="text-body-l text-white/85">{sub}</p>
       <div class="pt-sm">
         <a
-          href={ctaHref}
+          href={resolvedHref}
           class="inline-flex items-center gap-2xs bg-white text-fg-brand px-lg py-sm rounded font-semibold hover:bg-bg-brand-subtle transition-colors"
         >
           {ctaLabel} <span aria-hidden="true">→</span>

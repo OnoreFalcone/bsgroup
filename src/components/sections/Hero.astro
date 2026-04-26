@@ -1,4 +1,6 @@
 ---
+import { withBase } from '@/utils/url';
+
 interface Props {
   eyebrow?: string;
   headline?: string;
@@ -14,16 +16,18 @@ const {
   headline = 'Aus Konzept wird Realität.',
   subline = 'Wir bringen Ihre Projekte ins Ziel — pragmatisch, erfahren und verbindlich. Seit über 30 Jahren.',
   primaryLabel = 'Projekt besprechen',
-  primaryHref = '/kontakt',
+  primaryHref = withBase('/kontakt'),
   secondaryLabel = 'Referenzen ansehen',
-  secondaryHref = '/referenzen',
+  secondaryHref = withBase('/referenzen'),
 } = Astro.props;
+
+const heroBg = withBase('/images/scenery/shutterstock_1947194422-scaled.jpg');
 ---
 
 <section class="relative overflow-hidden group">
   <div class="absolute inset-0">
     <img
-      src="/images/scenery/shutterstock_1947194422-scaled.jpg"
+      src={heroBg}
       alt=""
       class="h-full w-full object-cover transition-transform duration-[10000ms] ease-out group-hover:scale-110"
       loading="eager"

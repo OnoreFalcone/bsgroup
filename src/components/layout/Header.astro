@@ -1,4 +1,6 @@
 ---
+import { withBase } from '@/utils/url';
+
 type NavItem = {
   label: string;
   href: string;
@@ -8,20 +10,24 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     label: 'Services',
-    href: '/services',
+    href: withBase('/services'),
     children: [
-      { label: 'Übersicht',                    href: '/services' },
-      { label: 'Project Services',             href: '/services/project-services' },
-      { label: 'Solution Services',            href: '/services/solution-services' },
-      { label: 'Quality Services',             href: '/services/quality-services' },
-      { label: 'Software Services',            href: '/services/software-services' },
+      { label: 'Übersicht',                    href: withBase('/services') },
+      { label: 'Project Services',             href: withBase('/services/project-services') },
+      { label: 'Solution Services',            href: withBase('/services/solution-services') },
+      { label: 'Quality Services',             href: withBase('/services/quality-services') },
+      { label: 'Software Services',            href: withBase('/services/software-services') },
     ],
   },
-  { label: 'Referenzen', href: '/referenzen' },
-  { label: 'Insights',   href: '/insights'   },
-  { label: 'Über uns',   href: '/ueber-uns'  },
-  { label: 'Karriere',   href: '/karriere'   },
+  { label: 'Referenzen', href: withBase('/referenzen') },
+  { label: 'Insights',   href: withBase('/insights')   },
+  { label: 'Über uns',   href: withBase('/ueber-uns')  },
+  { label: 'Karriere',   href: withBase('/karriere')   },
 ];
+
+const homeHref    = withBase('/');
+const kontaktHref = withBase('/kontakt');
+const logoSrc     = withBase('/logos/bsg/logo-bsg-smooth.png');
 ---
 
 <header
@@ -29,9 +35,9 @@ const navItems: NavItem[] = [
   class="sticky top-0 z-50 bg-bg-page/80 backdrop-blur-md border-b border-border-subtle transition-all duration-300"
 >
   <div class="max-w-layout mx-auto px-md md:px-2xl flex items-center justify-between transition-all duration-300 h-20" id="header-container">
-    <a href="/" class="inline-flex items-center hover:opacity-80 transition-opacity" aria-label="BSGroup — Startseite">
+    <a href={homeHref} class="inline-flex items-center hover:opacity-80 transition-opacity" aria-label="BSGroup — Startseite">
       <img
-        src="/logos/bsg/logo-bsg-smooth.png"
+        src={logoSrc}
         alt="BSGroup"
         class="h-7 md:h-8 w-auto transition-all duration-300"
         id="header-logo"
@@ -73,7 +79,7 @@ const navItems: NavItem[] = [
       ))}
     </nav>
 
-    <a href="/kontakt" class="hidden lg:inline-flex items-center gap-2xs bg-bg-brand text-fg-on-brand px-md py-2xs rounded font-semibold hover:bg-bg-brand-hover transition-colors">
+    <a href={kontaktHref} class="hidden lg:inline-flex items-center gap-2xs bg-bg-brand text-fg-on-brand px-md py-2xs rounded font-semibold hover:bg-bg-brand-hover transition-colors">
       Kontakt
     </a>
     <button
@@ -124,7 +130,7 @@ const navItems: NavItem[] = [
         )
       ))}
       <a
-        href="/kontakt"
+        href={kontaktHref}
         class="mt-xs inline-flex items-center justify-center gap-2xs bg-bg-brand text-fg-on-brand px-md py-sm rounded font-semibold hover:bg-bg-brand-hover transition-colors"
       >
         Kontakt

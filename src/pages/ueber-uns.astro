@@ -7,6 +7,7 @@ import LeadershipTeam from '@components/sections/LeadershipTeam.astro';
 import Engagement from '@components/sections/Engagement.astro';
 import OfficePhotos from '@components/sections/OfficePhotos.astro';
 import FinalCta from '@components/sections/FinalCta.astro';
+import { withBase } from '@/utils/url';
 ---
 
 <BaseLayout
@@ -23,8 +24,8 @@ import FinalCta from '@components/sections/FinalCta.astro';
     heading="Macher gesucht."
     body="Wir wachsen, wenn die richtigen Leute kommen — nicht weil die Pipeline es will. Wenn Sie liefern statt präsentieren wollen, sollten wir reden."
     primaryLabel="Offene Stellen ansehen"
-    primaryHref="/karriere"
+    primaryHref={withBase('/karriere')}
     secondaryLabel="Initiativbewerbung"
-    secondaryHref="/karriere"
+    secondaryHref={withBase('/karriere')}
   />
 </BaseLayout>

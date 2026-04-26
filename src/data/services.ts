@@ -38,7 +38,7 @@ export const services: Service[] = [
     headline: 'Aus Plan wird Produktion.',
     sub: 'Projektleitung, PMO und Programm-Management in regulierten Banken- und Versicherungsprojekten — von der Initialisierung bis zum Go-Live.',
     ctaLabel: 'Projekt-Setup besprechen',
-    ctaHref: '/kontakt',
+    ctaHref: '/kontakt', // wrapped via withBase() at render time in ServiceHero
     introHeading: 'Wenn das Projekt zählt, holt man uns.',
     introParagraphs: [
       'In Bank- und Versicherungsprojekten zählt nicht, wer das schönste Konzept schreibt — sondern wer es zum Laufen bringt. Unsere Projektleiterinnen und Programmleiter haben ihre Karriere im Schweizer Finanzplatz gemacht und kennen die regulatorische, organisatorische und technische Realität aus eigener Umsetzung.',
@@ -65,7 +65,7 @@ export const services: Service[] = [
     headline: 'Wir kennen die Plattformen, weil wir sie eingeführt haben.',
     sub: 'Evaluation, Design und Integration von Avaloq, Finnova, Adcubum SYRIUS und BSI CRM — herstellerneutral, weil wir nichts weiterverkaufen.',
     ctaLabel: 'Lösung evaluieren',
-    ctaHref: '/kontakt',
+    ctaHref: '/kontakt', // wrapped via withBase() at render time in ServiceHero
     introHeading: 'Plattform-Entscheidungen halten Jahrzehnte.',
     introParagraphs: [
       'Wer eine Plattform-Entscheidung trifft, lebt für die nächsten zehn Jahre damit. Wir kennen Avaloq, Finnova, Adcubum SYRIUS und BSI CRM aus eigenen Einführungen — nicht aus Schulungen, nicht aus Sales-Pitches.',
@@ -91,7 +91,7 @@ export const services: Service[] = [
     headline: 'Wenn’s einfach wäre, bräuchten Sie uns nicht.',
     sub: 'Schweizer Spezialisten für SYRIUS-Testing — Testmanagement, Testdurchführung und Testautomatisierung als Service oder punktuell.',
     ctaLabel: 'Seryous-Testing kennenlernen',
-    ctaHref: '/kontakt',
+    ctaHref: '/kontakt', // wrapped via withBase() at render time in ServiceHero
     introHeading: 'Testing entscheidet, ob Ihr Release am Montag läuft.',
     introParagraphs: [
       'In Krankenversicherungs- und Bank-IT entscheidet die Qualität der Tests, ob ein Release am Montag in Produktion geht oder zurückrollt. Seryous-Testing ist unser produktiviertes Test-Service: Schweizer Marktführer für SYRIUS-Releases, ergänzt um Bank-Testing.',
@@ -117,7 +117,7 @@ export const services: Service[] = [
     headline: 'Wir können nicht alles. Aber Banken und Versicherungen können wir.',
     sub: 'Custom Software Engineering, ALM, Migrationen und Cloud Re-Engineering für Banken und Versicherungen.',
     ctaLabel: 'Engineering-Bedarf besprechen',
-    ctaHref: '/kontakt',
+    ctaHref: '/kontakt', // wrapped via withBase() at render time in ServiceHero
     introHeading: 'Wenn Standard nicht reicht, beginnen wir.',
     introParagraphs: [
       'Standardprodukte decken 80% ab. Die letzten 20% — die regulatorischen Sonderfälle, die historisch gewachsenen Schnittstellen, die wirklich differenzierenden Geschäftsprozesse — sind das, wofür wir Software bauen.',

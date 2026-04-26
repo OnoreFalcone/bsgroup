@@ -1,5 +1,6 @@
 ---
 import { sliderLogos } from '@/data/site';
+import { withBase } from '@/utils/url';
 ---
 
 <section class="bg-bg-surface-subtle">
@@ -7,7 +8,7 @@ import { sliderLogos } from '@/data/site';
     <div class="flex flex-wrap items-center justify-center gap-x-2xl gap-y-md">
       {sliderLogos.map(logo => (
         <img
-          src={`/logos/clients/${logo.filename}`}
+          src={withBase(`/logos/clients/${logo.filename}`)}
           alt={logo.alt}
           class="h-12 w-auto object-contain"
           loading="lazy"
