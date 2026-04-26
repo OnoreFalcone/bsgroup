@@ -1,0 +1,55 @@
+---
+// Engagement section for /ueber-uns.
+// NOTE: The collage image (`/images/old/BSG-Engagement_Uu-1.jpg`) is from the
+// legacy site (PicCollage stitch with watermark). Slated for replacement by
+// three clean photos post-relaunch — see Relaunch_Plan.md.
+
+const items = [
+  {
+    eyebrow: 'SPORT',
+    head: 'Frauen Bob-Team',
+    body: 'Sponsoring des Fontanive Bobteams — Schweizer Spitzensport, der ohne private Träger nicht stattfindet.',
+  },
+  {
+    eyebrow: 'VEREIN',
+    head: 'Segelclub Männedorf',
+    body: 'Sponsoring des SCM auf dem Zürichsee. Unsere blauen Spinnaker fahren jede Saison.',
+  },
+  {
+    eyebrow: 'CHARITY',
+    head: 'Weihnachtsaktion',
+    body: 'Jährlicher Tagesausflug für Seniorinnen und Senioren aus der Region — eine Tradition, organisiert vom Backoffice.',
+  },
+];
+---
+
+<section class="bg-bg-page">
+  <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl space-y-2xl">
+    <div class="space-y-xs max-w-3xl">
+      <p class="text-eyebrow text-fg-brand">ENGAGEMENT</p>
+      <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">
+        Drei Engagements, die wir tragen.
+      </h2>
+      <p class="text-body-l text-fg-secondary">
+        Was wir ausserhalb der Mandate tun, sagt etwas über uns aus. Wir unterstützen Sport, Verein und Senioren — seit Jahren, persönlich, ohne Showbühne.
+      </p>
+    </div>
+
+    <img
+      src="/images/old/BSG-Engagement_Uu-1.jpg"
+      alt="Engagement-Collage: Frauen Bob-Team, Segelclub Männedorf, Weihnachtsaktion"
+      class="w-full rounded-lg"
+      loading="lazy"
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-2xl gap-y-xl">
+      {items.map(i => (
+        <div class="space-y-2xs">
+          <p class="text-eyebrow text-fg-muted">{i.eyebrow}</p>
+          <h3 class="text-h3 font-semibold text-fg-primary">{i.head}</h3>
+          <p class="text-body-m text-fg-secondary">{i.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

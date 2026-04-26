@@ -1,21 +1,86 @@
 ---
+const stats = [
+  { value: 30, suffix: '+',       label: 'Jahre am Schweizer Finanzplatz' },
+  { value: 80, suffix: '+',       label: 'Beraterinnen und Berater' },
+  { value: 95, suffix: '%',       label: 'Wiederbeauftragungsquote' },
+  { value: 8,  suffix: '+ Jahre', label: 'durchschnittliche Beratertenure' },
+];
 ---
 
 <section class="bg-bg-page">
   <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl md:py-4xl">
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_640px] gap-2xl items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_520px] xl:grid-cols-[1fr_640px] gap-2xl items-center">
       <div class="space-y-md">
         <p class="text-eyebrow text-fg-brand">ÜBER UNS</p>
-        <h1 class="text-5xl md:text-display-xl font-bold tracking-tight text-fg-primary">
+        <h1 class="text-5xl md:text-display-l xl:text-display-xl font-bold tracking-tight text-fg-primary">
           Wer bei uns anfängt, bleibt.
         </h1>
         <p class="text-body-l text-fg-secondary">
           Bei uns bleiben Beraterinnen und Berater im Schnitt über 8 Jahre. Und unsere Kundinnen und Kunden bleiben auch — neun von zehn beauftragen uns wieder. Die Person, die heute Ihr Projekt aufsetzt, bringt es auch zu Ende. Und wahrscheinlich auch das nächste.
         </p>
       </div>
-      <div class="aspect-[4/3] rounded-lg bg-bg-inverse-subtle flex items-center justify-center">
-        <span class="text-eyebrow text-white/40">TEAMFOTO — REAL, NICHT STOCK</span>
+
+      <div class="rounded-lg bg-bg-brand text-white p-xl md:p-2xl shadow-lg">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-lg md:gap-xl">
+          {stats.map(s => (
+            <div class="space-y-2xs">
+              <p class="text-4xl md:text-6xl font-bold leading-none whitespace-nowrap">
+                <span class="counter" data-target={s.value}>0</span>{s.suffix}
+              </p>
+              <p class="text-body-m text-white/80">{s.label}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-body-s text-white/60 pt-lg mt-lg border-t border-white/20">
+          Quelle: BSGroup interne Kennzahlen, Stand 2026.
+        </p>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const setup = () => {
+    const counters = document.querySelectorAll<HTMLElement>('.counter:not([data-done])');
+    if (!counters.length) return;
+
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const animate = (el: HTMLElement, target: number, duration = 2400) => {
+      const start = performance.now();
+      const tick = (now: number) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = easeOutCubic(progress);
+        el.textContent = String(Math.round(target * eased));
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          el.dataset.done = 'true';
+        }
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const target = parseInt(el.dataset.target ?? '0', 10);
+          if (reduced) {
+            el.textContent = String(target);
+            el.dataset.done = 'true';
+          } else {
+            animate(el, target);
+          }
+          io.unobserve(el);
+        }
+      }
+    }, { threshold: 0.4 });
+
+    counters.forEach(c => io.observe(c));
+  };
+
+  setup();
+  document.addEventListener('astro:page-load', setup);
+</script>

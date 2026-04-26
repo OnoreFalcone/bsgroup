@@ -27,6 +27,8 @@ export type Service = {
   capabilities: ServiceCapability[];
   steps: ServiceStep[];
   image: string;
+  /** CSS object-position for the hero crop. Defaults to "center" if omitted. */
+  imagePosition?: string;
 };
 
 export const services: Service[] = [
@@ -55,6 +57,7 @@ export const services: Service[] = [
       { name: 'Übergabe', desc: 'Sauberer Wissenstransfer, Dokumentation, kein abrupter Cut.' },
     ],
     image: '/images/scenery/ProjectServices.jpg',
+    imagePosition: 'center 70%',
   },
   {
     slug: 'solution-services',

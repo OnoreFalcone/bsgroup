@@ -1,10 +1,10 @@
 // Shared site-level content: KPIs, leadership, testimonials, logos, culture
 
 export const homeKpis = [
-  { num: '30+',     label: 'Jahre am Schweizer Finanzplatz' },
-  { num: '80+',     label: 'Beraterinnen und Berater' },
-  { num: '95%',     label: 'Wiederbeauftragungsquote' },
-  { num: '8+ Jahre', label: 'durchschnittliche Beratertenure' },
+  { num: '30+', label: 'Jahre am Schweizer Finanzplatz' },
+  { num: '80+', label: 'Beraterinnen und Berater' },
+  { num: '95%', label: 'Wiederbeauftragungsquote' },
+  { num: '8+',  label: 'Jahre durchschnittliche Beratertenure' },
 ];
 
 export const referenzenKpis = [
@@ -15,17 +15,19 @@ export const referenzenKpis = [
 ];
 
 export type Leader = {
+  name: string;
   role: string;
   context: string;
+  photo: string | null;
 };
 
 export const leaders: Leader[] = [
-  { role: 'CEO · Geschäftsführer',       context: 'Verantwortet Strategie und Beratungsqualität.' },
-  { role: 'Head of Project Services',     context: 'Programm- und Projektleitung in regulierten Vorhaben.' },
-  { role: 'Head of Solution Services',    context: 'Plattform-Expertise: Avaloq, Finnova, SYRIUS, BSI CRM.' },
-  { role: 'Head of Quality Services',     context: 'Seryous-Testing und Schweizer SYRIUS-Marktführerschaft.' },
-  { role: 'Head of Software Services',    context: 'Custom Engineering, ALM, Cloud Re-Engineering.' },
-  { role: 'Head of People',               context: 'Kultur, Karriere, Beratendenentwicklung.' },
+  { name: 'Andreas Weyand',      role: 'Managing Partner · VR-Präsident',                 context: 'Verantwortet Strategie, Eigentümervertretung und Beratungsqualität.', photo: 'Weyand' },
+  { name: 'Andreas Straubinger', role: 'Managing Partner · VR-Mitglied',                  context: 'Verantwortet Wachstum, Mandatsführung und strategische Kunden.',     photo: 'Straubinger' },
+  { name: 'Eveline Kälin',       role: 'Geschäftsleitung · Project Services',             context: 'Programm- und Projektleitung in regulierten Vorhaben.',               photo: 'eveline' },
+  { name: 'Sasa Stojancic',      role: 'Geschäftsleitung · Solution Services',            context: 'Plattform-Expertise: Avaloq, Finnova, SYRIUS, BSI CRM.',              photo: 'sasa' },
+  { name: 'Pascal Langenstein',  role: 'Geschäftsleitung · Software Services',            context: 'Custom Engineering, ALM, Cloud Re-Engineering.',                      photo: 'pascal' },
+  { name: 'Claudia Engel',       role: 'Backoffice & Finanzen',                           context: 'Finanzen, HR und Operations.',                                        photo: 'Claudia' },
 ];
 
 export type Testimonial = {

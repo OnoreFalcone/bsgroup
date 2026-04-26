@@ -49,11 +49,11 @@ const N = milestones.length;
                 <p class="text-eyebrow text-fg-muted mt-xs">{m.tag.toUpperCase()}</p>
               </div>
               {/* Dot row */}
-              <div class="h-10 flex items-center relative">
-                {m.isCurrent && (
-                  <div class="absolute w-10 h-10 rounded-full bg-bg-brand-subtle"></div>
-                )}
-                <div class="relative w-4 h-4 rounded-full bg-bg-brand border-2 border-white"></div>
+              <div class="h-10 flex items-center">
+                <div class:list={[
+                  'w-4 h-4 rounded-full bg-bg-brand border-2 border-white',
+                  m.isCurrent && 'ring-[12px] ring-bg-brand-subtle'
+                ]}></div>
               </div>
               {/* Bottom: head + body */}
               <div class="pt-md px-2xs space-y-xs">

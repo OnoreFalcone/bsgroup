@@ -6,13 +6,21 @@ interface Props {
   ctaLabel: string;
   ctaHref: string;
   image: string;
+  imagePosition?: string;
 }
-const { eyebrow, headline, sub, ctaLabel, ctaHref, image } = Astro.props;
+const { eyebrow, headline, sub, ctaLabel, ctaHref, image, imagePosition = 'center' } = Astro.props;
 ---
 
 <section class="relative overflow-hidden">
   <div class="absolute inset-0">
-    <img src={image} alt="" class="h-full w-full object-cover" loading="eager" fetchpriority="high" />
+    <img
+      src={image}
+      alt=""
+      class="h-full w-full object-cover"
+      style={`object-position: ${imagePosition};`}
+      loading="eager"
+      fetchpriority="high"
+    />
     <div
       class="absolute inset-0"
       style="background: linear-gradient(to right, rgb(0 23 137 / 0.85) 0%, rgb(0 23 137 / 0.4) 55%, rgb(0 23 137 / 0.1) 100%);"

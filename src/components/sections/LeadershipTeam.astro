@@ -1,5 +1,20 @@
 ---
+import { Image } from 'astro:assets';
 import { leaders } from '@/data/site';
+
+import Weyand      from '@/assets/photos/portraits/Weyand.jpg';
+import Straubinger from '@/assets/photos/portraits/Straubinger.jpg';
+import eveline     from '@/assets/photos/portraits/eveline.jpg';
+import sasa        from '@/assets/photos/portraits/sasa.jpg';
+import pascal      from '@/assets/photos/portraits/pascal.jpg';
+import Claudia     from '@/assets/photos/portraits/Claudia.jpg';
+
+const portraits: Record<string, ImageMetadata> = {
+  Weyand, Straubinger, eveline, sasa, pascal, Claudia,
+};
+
+const initials = (name: string) =>
+  name.split(' ').map(part => part[0]).join('').slice(0, 2).toUpperCase();
 ---
 
 <section class="bg-bg-surface-subtle">
@@ -7,25 +22,44 @@ import { leaders } from '@/data/site';
     <div class="space-y-xs max-w-3xl">
       <h2 class="text-4xl md:text-display-l font-bold text-fg-primary">Wer hier verantwortet.</h2>
       <p class="text-body-l text-fg-secondary">
-        Sechs Senior-Beratende mit zusammen über 150 Jahren Erfahrung im Schweizer Finanzplatz. Die Personen, mit denen Sie an einem Tisch sitzen.
+        Verwaltungsrat und Geschäftsleitung der Business Solution Group AG. Die Personen, mit denen Sie an einem Tisch sitzen.
       </p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
-      {leaders.map(l => (
-        <div class="space-y-sm">
-          <div class="aspect-square rounded-lg bg-bg-inverse-subtle flex items-center justify-center">
-            <span class="text-eyebrow text-white/40">B&W PORTRAIT</span>
+      {leaders.map(l => {
+        const portrait = l.photo ? portraits[l.photo] : null;
+        return (
+          <div class="group cursor-default">
+            <div class="transition-transform duration-300 ease-out group-hover:-translate-y-2">
+              {portrait ? (
+                <div class="overflow-hidden rounded-lg shadow-sm transition-shadow duration-300 group-hover:shadow-xl">
+                  <Image
+                    src={portrait}
+                    alt={`Porträt ${l.name}`}
+                    width={600}
+                    height={600}
+                    class="aspect-square w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  />
+                </div>
+              ) : (
+                <div class="aspect-square w-full rounded-lg bg-bg-brand flex items-center justify-center shadow-sm transition-shadow duration-300 group-hover:shadow-xl">
+                  <span class="text-display-l font-bold text-white/90">{initials(l.name)}</span>
+                </div>
+              )}
+              <div class="space-y-2xs pt-sm">
+                <p class="text-h3 font-semibold text-fg-primary transition-colors duration-200 group-hover:text-fg-brand">
+                  {l.name}
+                </p>
+                <p class="text-body-m font-medium text-fg-brand">{l.role}</p>
+                <p class="text-body-m text-fg-secondary">{l.context}</p>
+                <a href="#" class="inline-flex items-center gap-2xs pt-xs text-body-m font-medium text-fg-brand hover:text-fg-brand-hover transition-colors">
+                  LinkedIn <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="space-y-2xs">
-            <p class="text-h3 font-semibold text-fg-primary">Name folgt</p>
-            <p class="text-body-m font-medium text-fg-brand">{l.role}</p>
-            <p class="text-body-m text-fg-secondary">{l.context}</p>
-            <a href="#" class="inline-flex items-center gap-2xs pt-xs text-body-m font-medium text-fg-brand hover:text-fg-brand-hover transition-colors">
-              LinkedIn <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   </div>
 </section>

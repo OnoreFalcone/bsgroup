@@ -12,11 +12,11 @@ const bgClass = background === 'surface-subtle' ? 'bg-bg-surface-subtle' : 'bg-b
 
 <section class={bgClass}>
   <div class="max-w-layout mx-auto px-md md:px-2xl py-3xl">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-xl">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-lg md:gap-xl">
       {kpis.map(kpi => (
         <div class="space-y-2xs">
-          <p class="text-5xl md:text-display-l font-bold text-fg-brand">{kpi.num}</p>
-          <p class="text-body-m font-medium text-fg-secondary max-w-[240px]">{kpi.label}</p>
+          <p class="text-4xl md:text-5xl lg:text-6xl font-bold text-fg-brand">{kpi.num}</p>
+          <p class="text-body-m font-medium text-fg-secondary max-w-[240px] break-words hyphens-auto" lang="de">{kpi.label}</p>
         </div>
       ))}
     </div>
